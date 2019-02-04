@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-swiss-army-knife": [
+        "dist/ng-swiss-army-knife"
+      ],
+      "ng-swiss-army-knife/*": [
+        "dist/ng-swiss-army-knife/*"
+      ]
+    }
   }
 }
