@@ -1,27 +1,18 @@
 # NgSwissArmyKnife
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+This library provides common Tools, Helpers, Directives, Components, Services and Pipes
+that are often used in different angular projects.
 
-## Development server
+So it should be a swiss army knife for angular developers ;-D
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+_If you find something missing or have suggestions please let me know._
 
-## Code scaffolding
+I work on different angular projects and will update this library frequently.
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+run  `npm i ng-swiss-army-knife --save`
 
-## Build
+## API
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Services
+* PubSubService (simple PubSub Service that can also communicate across BrowserTabs)

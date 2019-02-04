@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-lib": "ng build ng-swiss-army-knife",
+    "npm-pack": "cd dist/ng-swiss-army-knife && npm pack",
+    "package": "npm run build-lib && npm run npm-pack",
+    "publish": "cd dist/ng-swiss-army-knife && npm publish"
   },
   "private": true,
   "dependencies": {

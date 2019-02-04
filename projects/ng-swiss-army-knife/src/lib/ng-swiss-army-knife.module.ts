@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { NgSwissArmyKnifeComponent } from './ng-swiss-army-knife.component';
 
 @NgModule({
-  declarations: [NgSwissArmyKnifeComponent],
+  declarations: [],
   imports: [
   ],
-  exports: [NgSwissArmyKnifeComponent]
+  exports: []
 })
-export class NgSwissArmyKnifeModule { }
+export class SwissArmyKnifeModule { }
