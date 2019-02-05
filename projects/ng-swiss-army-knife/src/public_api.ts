@@ -4,3 +4,4 @@
 
 export * from './lib/services/pub-sub.service';
 export * from './lib/ng-swiss-army-knife.module';
+export * from './lib/helper';
