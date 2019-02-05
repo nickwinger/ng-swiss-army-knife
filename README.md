@@ -14,5 +14,4 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
-### Services
-* PubSubService (simple PubSub Service that can also communicate across BrowserTabs)
+[Click here for the full documentation](https://github.com/nickwinger/ng-swiss-army-knife/docs/index.html)

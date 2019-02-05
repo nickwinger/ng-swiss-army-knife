@@ -1,0 +1,6 @@
+{
+  "$schema": "./node_modules/@compodoc/compodoc/src/config/schema.json",
+  "name": "Angular Swiss Army Knife",
+  "output": "./docs/",
+  "tsconfig": "./projects/ng-swiss-army-knife/tsconfig.lib.json"
+}
