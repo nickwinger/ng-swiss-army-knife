@@ -14,4 +14,4 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
-[Click here for the full documentation](https://github.com/nickwinger/ng-swiss-army-knife/docs/index.html)
+[Click here for the full documentation](https://nickwinger.github.io/ng-swiss-army-knife/)
