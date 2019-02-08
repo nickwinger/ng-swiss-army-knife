@@ -12,6 +12,10 @@ I work on different angular projects and will update this library frequently.
 
 run  `npm i ng-swiss-army-knife --save`
 
+## API
+
+[Click here for the full documentation](https://nickwinger.github.io/ng-swiss-army-knife/)
+
 ## Usage
 For the full usage check out the documentation.
 But for simplicity you can typ SwissArmyKnife anywhere
@@ -26,6 +30,4 @@ We find this very handy, as you don't remember all the helper function
 names if the are just loose.
 ![Intellisense2](https://raw.githubusercontent.com/nickwinger/ng-swiss-army-knife/master/assets/intellisense2.png "Intellisense2")
 
-## API
 
-[Click here for the full documentation](https://nickwinger.github.io/ng-swiss-army-knife/)
