@@ -17,8 +17,7 @@ run  `npm i ng-swiss-army-knife --save`
 [Click here for the full documentation](https://nickwinger.github.io/ng-swiss-army-knife/)
 
 ## Usage
-For the full usage check out the documentation.
-But for simplicity you can typ SwissArmyKnife anywhere
+For simplicity you can typ SwissArmyKnife anywhere
 in your application and the intellisense will show you
 everything that the knife has to offer.
 ![Intellisense1](https://raw.githubusercontent.com/nickwinger/ng-swiss-army-knife/master/assets/intellisense1.png "Intellisense1")
