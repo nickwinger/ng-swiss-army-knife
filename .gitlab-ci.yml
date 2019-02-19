@@ -18,6 +18,7 @@ publish:
     - tags
     - triggers
   script:
+    - npm install -g npm-cli-login
     - npm run package
-    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm-cli-login -u ${NPM_USERNAME} -p ${NPM_PASSWORD} -e nick@bit4bit.at
     - npm run publish

@@ -36,5 +36,7 @@ names if the are just loose.
 ## Development
 * When checkin to GIT run "npm compodoc" before
 * To create a new version and automatically deploy to NPM: 
-* 1. cd projects/ng-swiss-army-knife
-  2. "npm version <newversion>"
+* 1. manually update the version in the projects/ng-swiss-army-knife/package.json
+  2. GIT Commit
+  3. "npm version <newversion>" in project root
+  4. Commit and Push to Git
