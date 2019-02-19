@@ -1,4 +1,4 @@
-image: weltn24/up-docker-node-chrome-headless
+image: weltn24/up-docker-node-chrome-headless:chrome-66_node-10.0_yarn-1.6.0
 
 before_script:
   - npm install
