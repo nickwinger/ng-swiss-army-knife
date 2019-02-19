@@ -29,3 +29,7 @@ names if the are just loose.
 ## API
 
 [Click here for the full documentation](https://nickwinger.github.io/ng-swiss-army-knife/)
+
+## Development
+* When checkin to GIT run "npm compodoc" before
+* To create a new version and automatically deploy to NPM: "npm version <newversion>"

@@ -2,6 +2,7 @@
   "name": "ng-swiss-army-knife",
   "version": "0.0.0",
   "scripts": {
+    "postversion": "git push --follow-tags",
     "compodoc": "compodoc --config .compodocrc.json",
     "ng": "ng",
     "start": "ng serve",

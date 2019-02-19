@@ -60,7 +60,31 @@
                             <a href="#callFuncOnFormGroupAndChildren" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>callFuncOnFormGroupAndChildren</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
                         </li>
                         <li>
+                            <a href="#decodeURIJson" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>decodeURIJson</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#encodeURIJson" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>encodeURIJson</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#escapeXml" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>escapeXml</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
                             <a href="#getDirtyControls" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>getDirtyControls</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isNullOrUndefined" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>isNullOrUndefined</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isNumber" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>isNumber</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isObjectEmpty" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>isObjectEmpty</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#jsonDeepClone" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>jsonDeepClone</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#jsonIsEqual" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>jsonIsEqual</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
                         </li>
                         <li>
                             <a href="#markFormGroupAsDirty" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>markFormGroupAsDirty</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
@@ -76,6 +100,21 @@
                         </li>
                         <li>
                             <a href="#markFormGroupAsUntouched" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>markFormGroupAsUntouched</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#removeBodyCssClass" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>removeBodyCssClass</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#roundNumber" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>roundNumber</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#setBodyCssClass" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>setBodyCssClass</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#toggleBodyCssClass" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>toggleBodyCssClass</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#waitForProperty" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>waitForProperty</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -502,6 +541,856 @@ as untouched</p>
                                                         <td>
                                                                 <code><p>The form group to mark as untouched</p>
 </code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/ng-swiss-army-knife/src/lib/helper/misc.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="decodeURIJson"></a>
+                        <span class="name">
+                            <b>
+                            decodeURIJson
+                            </b>
+                            <a href="#decodeURIJson"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>decodeURIJson(encodedJson)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Takes an URI value which is a json string and converts it to a javascript object</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>encodedJson</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The URIEncoded JSON</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="encodeURIJson"></a>
+                        <span class="name">
+                            <b>
+                            encodeURIJson
+                            </b>
+                            <a href="#encodeURIJson"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>encodeURIJson(obj: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Takes an object converts it to json and then URI-Encodes it to be used in a URL</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The object which to encode</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="escapeXml"></a>
+                        <span class="name">
+                            <b>
+                            escapeXml
+                            </b>
+                            <a href="#escapeXml"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>escapeXml(unsafeHTML)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Escapes a html string to be safe, for example to show inside HTML</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>unsafeHTML</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isNullOrUndefined"></a>
+                        <span class="name">
+                            <b>
+                            isNullOrUndefined
+                            </b>
+                            <a href="#isNullOrUndefined"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>isNullOrUndefined(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Handy function if you want to check both null and undefined</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The value which to check for null or undefined</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isNumber"></a>
+                        <span class="name">
+                            <b>
+                            isNumber
+                            </b>
+                            <a href="#isNumber"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>isNumber(ch)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Checks if a string is a number</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ch</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The string which to check for number</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isObjectEmpty"></a>
+                        <span class="name">
+                            <b>
+                            isObjectEmpty
+                            </b>
+                            <a href="#isObjectEmpty"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>isObjectEmpty(obj)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Checks if an object is empty, meaning it has to properties</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The object which to check for empty</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="jsonDeepClone"></a>
+                        <span class="name">
+                            <b>
+                            jsonDeepClone
+                            </b>
+                            <a href="#jsonDeepClone"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>jsonDeepClone(obj)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>*
+Clones an object via json stringify and json parse (so classes with functions won&#39;t work here...)
+However plain objects and arrays are deep cloned, this is why this method exists
+Also important: Because of deep cloning objects in arrays are also cloned, so perfect
+for duplicating an array without having the same reference inside
+Most useful also for immutable Redux-State</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The object to clone</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="jsonIsEqual"></a>
+                        <span class="name">
+                            <b>
+                            jsonIsEqual
+                            </b>
+                            <a href="#jsonIsEqual"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>jsonIsEqual(obj1: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, obj2: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>*
+Compares 2 objects if they are equal by converting to json and comparing the string
+So this method does not compare the reference but all the values inside</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj1</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>First object to compare</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>obj2</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>Second object to compare</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeBodyCssClass"></a>
+                        <span class="name">
+                            <b>
+                            removeBodyCssClass
+                            </b>
+                            <a href="#removeBodyCssClass"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>removeBodyCssClass(cssClass)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Removes a css class from the document body</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>cssClass</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The CSS Class which to remove</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roundNumber"></a>
+                        <span class="name">
+                            <b>
+                            roundNumber
+                            </b>
+                            <a href="#roundNumber"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>roundNumber(num, digits)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>*
+Javascript has no methode for rounding a number to certain amount of digits, so here it is</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>num</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The number which to round</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>digits</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>How many digits after the comma</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setBodyCssClass"></a>
+                        <span class="name">
+                            <b>
+                            setBodyCssClass
+                            </b>
+                            <a href="#setBodyCssClass"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setBodyCssClass(cssClass)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Sets a css class on the document body if it does not already exists</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>cssClass</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The CSS class which to set on the document body</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleBodyCssClass"></a>
+                        <span class="name">
+                            <b>
+                            toggleBodyCssClass
+                            </b>
+                            <a href="#toggleBodyCssClass"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleBodyCssClass(cssClass)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Toggles a CSS class on the document body</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>cssClass</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The class which to toggle on the document body</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="waitForProperty"></a>
+                        <span class="name">
+                            <b>
+                            waitForProperty
+                            </b>
+                            <a href="#waitForProperty"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>waitForProperty(obj, propertyAccessor, retries)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Waits for a property on an object to be not undefined
+And returns this property in an observable</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The object which holds the property</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>propertyAccessor</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>retries</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
                                                         </td>
                                                 </tr>
                                         </tbody>
