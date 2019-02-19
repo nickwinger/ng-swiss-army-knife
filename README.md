@@ -35,4 +35,6 @@ names if the are just loose.
 
 ## Development
 * When checkin to GIT run "npm compodoc" before
-* To create a new version and automatically deploy to NPM: "npm version <newversion>"
+* To create a new version and automatically deploy to NPM: 
+* 1. cd projects/ng-swiss-army-knife
+  2. "npm version <newversion>"
