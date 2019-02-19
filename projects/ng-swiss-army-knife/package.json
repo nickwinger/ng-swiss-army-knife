@@ -1,11 +1,12 @@
 {
   "name": "ng-swiss-army-knife",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "email": "nick@bit4bit.at",
     "name": "Nick Winger"
   },
   "scripts": {
+    "postversion": "git push --follow-tags",
     "prestart": "npm install",
     "ng": "ng",
     "start": "ng serve"
