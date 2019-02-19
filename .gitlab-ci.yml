@@ -10,7 +10,7 @@ cache:
 test:
   script:
     - npm run build-lib
-    - npm run test
+    - npm run testNoWatch
 
 publish:
   stage: deploy
