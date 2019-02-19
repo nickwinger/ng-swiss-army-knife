@@ -1,4 +1,4 @@
-image: node:10
+image: weltn24/up-docker-node-chrome-headless
 
 before_script:
   - npm install
