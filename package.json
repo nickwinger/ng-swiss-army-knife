@@ -13,7 +13,7 @@
     "e2e": "ng e2e",
     "copyFiles": "copyfiles -u -1 ./projects/ng-swiss-army-knife/src/lib/styling/atoms.scss ./dist/ng-swiss-army-knife",
     "build:lib:scss": "node-sass ./projects/ng-swiss-army-knife/src/lib/styling/atoms.scss ./dist/ng-swiss-army-knife/atoms.css",
-    "build-lib": "ng build ng-swiss-army-knife && npm run build:lib:scss && copyFiles",
+    "build-lib": "ng build ng-swiss-army-knife && npm run build:lib:scss && npm run copyFiles",
     "npm-pack": "cd dist/ng-swiss-army-knife && npm pack",
     "package": "npm run build-lib && npm run npm-pack",
     "publish": "cd dist/ng-swiss-army-knife && npm publish"
