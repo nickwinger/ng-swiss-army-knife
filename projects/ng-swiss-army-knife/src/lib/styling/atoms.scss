@@ -5,7 +5,7 @@ $font-sizes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 2
 @mixin createPixelOffsetClass($className, $style) {
   @each $pixel-offset in $pixel-offsets {
     .#{$className}#{$pixel-offset} {
-      $style: $pixel-offset * 1px;
+      #{$style}: $pixel-offset * 1px;
     }
   }
 }
@@ -22,9 +22,9 @@ $font-sizes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 2
 @include createPixelOffsetClass('paddingL', 'padding-left')
 @include createPixelOffsetClass('padding', 'padding')
 
-@each $font-size in font-sizes {
+@each $font-size in $font-sizes {
   .fontSize#{$font-size} {
-    font-size: $font-size * 1px;
+    font-size: $font-size;
   }
 }
 
