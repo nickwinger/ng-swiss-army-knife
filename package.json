@@ -11,7 +11,8 @@
     "testCI": "ng test --karma-config=projects/ng-swiss-army-knife/karma.conf.ci.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build ng-swiss-army-knife",
+    "build:lib:scss": "scss-bundle -c scss-bundle.config.json",
+    "build-lib": "ng build ng-swiss-army-knife && npm run build:lib:scss",
     "npm-pack": "cd dist/ng-swiss-army-knife && npm pack",
     "package": "npm run build-lib && npm run npm-pack",
     "publish": "cd dist/ng-swiss-army-knife && npm publish"
@@ -51,6 +52,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^4.2.0",
     "protractor": "~5.4.0",
+    "scss-bundle": "^2.5.0",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",

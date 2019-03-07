@@ -1,0 +1,71 @@
+
+$pixel-offsets: 1 2 3 4 5 6 7 8 9 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 45 50 55 60 65 70 80 90 100;
+$font-sizes: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 32 34 36 38 40 45 50 55 60;
+
+@mixin createPixelOffsetClass($className, $style) {
+  @each $pixel-offset in $pixel-offsets {
+    .#{$className}#{$pixel-offset} {
+      $style: $pixel-offset * 1px;
+    }
+  }
+}
+
+@include createPixelOffsetClass('marginT', 'margin-top')
+@include createPixelOffsetClass('marginR', 'margin-right')
+@include createPixelOffsetClass('marginB', 'margin-bottom')
+@include createPixelOffsetClass('marginL', 'margin-left')
+@include createPixelOffsetClass('margin', 'margin')
+
+@include createPixelOffsetClass('paddingT', 'padding-top')
+@include createPixelOffsetClass('paddingR', 'padding-right')
+@include createPixelOffsetClass('paddingB', 'padding-bottom')
+@include createPixelOffsetClass('paddingL', 'padding-left')
+@include createPixelOffsetClass('padding', 'padding')
+
+@each $font-size in font-sizes {
+  .fontSize#{$font-size} {
+    font-size: $font-size * 1px;
+  }
+}
+
+.borderNone { border: none; }
+.borderNoneImp { border: none !important; }
+.pointer:not([disabled]) { cursor: pointer; }
+.bold { font-weight: bold; }
+.overflowYHidden { overflow-y: hidden; }
+.width100 { width: 100%; }
+.height100 { height: 100%; }
+
+.boxShadowNone { box-shadow: none !important; }
+.colorBlack { color: black !important; }
+.noWrap { white-space: nowrap; }
+.wrap {white-space: initial; }
+.mirrorX { transform: scaleX(-1); }
+.positionRelative { position: relative}
+.width100Imp { width: 100% !important; }
+.rotate180 { transform: rotate(180deg); }
+
+.cursorCrosshair { cursor: crosshair; }
+.cursorNoEvent { pointer-events: none; }
+
+.textAlignCenter { text-align: center; }
+.textAlignRight { text-align: right; }
+.textAlignLeft { text-align: left; }
+
+.pageBreakInsideAvoid { page-break-inside: avoid }
+.pageBreakAfterAvoid { page-break-after: avoid }
+.pageBreakAfterAlways { page-break-after: always }
+
+.borderDotted { border-style: dotted; }
+.inlineBlock { display: inline-block; }
+.displayBlock { display: block; }
+.displayNone { display: none; }
+
+.margin0 { margin: 0 !important;}
+.backgroundColorWhiteImp { background-color: white !important; }
+
+.uppercase { text-transform: uppercase; }
+.textCapitalize { text-transform: capitalize }
+.textEllipsis { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+.firstLetterCapitalize:first-letter { text-transform: uppercase; }

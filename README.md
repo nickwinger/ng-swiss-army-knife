@@ -14,6 +14,13 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
+### SCSS Styles:
+You can include the atoms.scss to be able to do atom-styling, meaning
+you have one css class for one styling property, e.g.:
+`<div class="marginT20 cursorPointer padding5"></div>`
+
+### Angular Typescript:
+
 [Click here for the full documentation](https://nickwinger.github.io/ng-swiss-army-knife/)
 
 ## Usage
@@ -37,6 +44,7 @@ names if the are just loose.
 * When checkin to GIT run "npm compodoc" before
 * To create a new version and automatically deploy to NPM: 
 * 1. manually update the version in the projects/ng-swiss-army-knife/package.json
-  2. GIT Commit and Push
+  2. GIT Commit
   3. "npm version <newversion>" in project root
+  (git push --follow-tags may not work inside npm, then you have to type it manually)
   4. Commit and Push to Git

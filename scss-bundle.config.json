@@ -1,0 +1,4 @@
+{
+  "entry": "./projects/ng-swiss-army-knife/src/lib/styling/atoms.scss",
+  "dest": "dist/styling/ng-swiss-army-knife/atoms.scss"
+}
