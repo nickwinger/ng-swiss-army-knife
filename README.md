@@ -48,3 +48,5 @@ names if the are just loose.
   3. "npm version <newversion>" in project root
   (git push --follow-tags may not work inside npm, then you have to type it manually)
   4. Commit and Push to Git
+  
+bit4bit
