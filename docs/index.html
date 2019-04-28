@@ -38,26 +38,39 @@ that are often used in different angular projects.</p>
 <p>I work on different angular projects and will update this library frequently.</p>
 <h2 id="installation">Installation</h2>
 <p>run  <code>npm i ng-swiss-army-knife --save</code></p>
+<h2 id="api">API</h2>
+<h3 id="scss-styles-">SCSS Styles:</h3>
+<p>You can include the atoms.scss to be able to do atom-styling, meaning
+you have one css class for one styling property, e.g.:
+<code>&lt;div class=&quot;marginT20 cursorPointer padding5&quot;&gt;&lt;/div&gt;</code></p>
+<h3 id="angular-typescript-">Angular Typescript:</h3>
+<p><a href="https://nickwinger.github.io/ng-swiss-army-knife/">Click here for the full documentation</a></p>
 <h2 id="usage">Usage</h2>
-<p>For the full usage check out the documentation.
-But for simplicity you can typ SwissArmyKnife anywhere
+<p>For simplicity you can typ SwissArmyKnife anywhere
 in your application and the intellisense will show you
 everything that the knife has to offer.
-<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="Intellisense1" class="img-responsive" title="Intellisense1">
-(technically we made a class with static members, so all
+<img src="https://raw.githubusercontent.com/nickwinger/ng-swiss-army-knife/master/assets/intellisense1.png" alt="Intellisense1" class="img-responsive" title="Intellisense1"></p>
+<p>(technically we made a class with static members, so all
 the helpers, services, etc. are at one place and you don&#39;t have
-to guess the names...)
-Also you can find all the helpers if you typ Helper(dot)
+to guess the names...)</p>
+<p>Also you can find all the helpers if you typ Helper(dot)
 We find this very handy, as you don&#39;t remember all the helper function
 names if the are just loose.
-<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="Intellisense2" class="img-responsive" title="Intellisense2"></p>
-<h2 id="api">API</h2>
-<p><a href="https://nickwinger.github.io/ng-swiss-army-knife/">Click here for the full documentation</a></p>
+<img src="https://raw.githubusercontent.com/nickwinger/ng-swiss-army-knife/master/assets/intellisense2.png" alt="Intellisense2" class="img-responsive" title="Intellisense2"></p>
 <h2 id="development">Development</h2>
 <ul>
 <li>When checkin to GIT run &quot;npm compodoc&quot; before</li>
-<li>To create a new version and automatically deploy to NPM: &quot;npm version <newversion>&quot;</li>
+<li>To create a new version and automatically deploy to NPM: </li>
+<li><ol>
+<li>manually update the version in the projects/ng-swiss-army-knife/package.json</li>
+<li>GIT Commit</li>
+<li>&quot;npm version <newversion>&quot; in project root
+(git push --follow-tags may not work inside npm, then you have to type it manually)</li>
+<li>Commit and Push to Git</li>
+</ol>
+</li>
 </ul>
+<p>bit4bit</p>
 
 
 
