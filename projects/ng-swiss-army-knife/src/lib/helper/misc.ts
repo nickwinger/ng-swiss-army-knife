@@ -175,6 +175,7 @@ export function roundNumber(num: number, digits: number = 2): number {
 }
 
 export class MiscHelper {
+  static createAndClickDownloadLink = createAndClickDownloadLink;
   static escapeXml = escapeXml;
   static isNumber = isNumber;
   static waitForProperty = waitForProperty;
