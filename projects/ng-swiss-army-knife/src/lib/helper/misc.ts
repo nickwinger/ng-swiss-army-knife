@@ -17,25 +17,6 @@ export function escapeXml(unsafeHTML: string): string {
 }
 
 /**
- * Creates a hidden link to download something given the href url
- * @param url The url which to download
- * @param fileName The name of the file to be downloaded (used for the a tag)
- */
-export function createAndClickDownloadLink(url: string, fileName: string) {
-  const link = document.createElement('a');
-
-  if (link.download === undefined)
-    return;
-
-  link.setAttribute('href', url);
-  link.setAttribute('download', fileName);
-  link.style.visibility = 'hidden';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-
-/**
  * Checks if a string is a number
  * @param ch The string which to check for number
  */
@@ -175,7 +156,6 @@ export function roundNumber(num: number, digits: number = 2): number {
 }
 
 export class MiscHelper {
-  static createAndClickDownloadLink = createAndClickDownloadLink;
   static escapeXml = escapeXml;
   static isNumber = isNumber;
   static waitForProperty = waitForProperty;
