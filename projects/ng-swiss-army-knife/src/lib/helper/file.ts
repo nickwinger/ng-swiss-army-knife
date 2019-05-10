@@ -23,11 +23,11 @@ export function createAndClickDownloadLink(url: string, fileName: string) {
  * using createAndClickDownloadLink
  * @param data an array of string arrays containing the csv data
  */
-export function createCsvDataUriFromArray(data: string[][]): string {
+export function createCsvDataUriFromArray(data: string[][], delimiter: string = ';'): string {
   let csvContent = 'data:text/csv;charset=utf-8,';
 
   data.forEach(rowArray => {
-    const row = rowArray.join(',');
+    const row = rowArray.join(delimiter);
     csvContent += row + '\r\n';
   });
   
@@ -40,8 +40,8 @@ export function createCsvDataUriFromArray(data: string[][]): string {
  * @param data an array of string arrays containing the csv data
  * @param filename the name of the csv file which will be downloaded
  */
-export function downloadArrayAsCsvFile(data: string[][], filename: string): void {
-  const csv = createCsvDataUriFromArray(data);
+export function downloadArrayAsCsvFile(data: string[][], filename: string, delimiter: string = ';'): void {
+  const csv = createCsvDataUriFromArray(data, delimiter);
   createAndClickDownloadLink(csv, filename);
 }
 

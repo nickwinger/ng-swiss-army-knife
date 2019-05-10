@@ -5,6 +5,7 @@ that are often used in different angular projects.
 
 So it should be a swiss army knife for angular developers ;-D
 
+But it also contains a lot of useful stuff for just javascript developers or css styling
 _If you find something missing or have suggestions please let me know._
 
 I work on different angular projects and will update this library frequently.
