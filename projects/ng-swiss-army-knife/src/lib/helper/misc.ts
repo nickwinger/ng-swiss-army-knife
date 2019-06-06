@@ -146,6 +146,26 @@ export function jsonIsEqual(obj1: any, obj2: any): boolean {
 }
 
 /***
+ * Used to preload image. Returns a stream containing the Html Image Element on success
+ * or the error in case of an error
+ * @param url The image src url to load
+ */
+export function loadImage(url: string): Observable<HTMLImageElement> {
+  return new Observable(subscriber => {
+    const image = new Image();
+    image.onload = (ev: Event) => {
+      subscriber.next(image);
+      subscriber.complete();
+    };
+    image.onerror = (ev: ErrorEvent) => {
+      subscriber.next(ev.error);
+      subscriber.complete();
+    };
+    image.src = url;
+  });
+}
+
+/***
  * Javascript has no methode for rounding a number to certain amount of digits, so here it is
  * @param num The number which to round
  * @param digits How many digits after the comma
@@ -169,4 +189,5 @@ export class MiscHelper {
   static jsonDeepClone = jsonDeepClone;
   static jsonIsEqual = jsonIsEqual;
   static roundNumber = roundNumber;
+  static loadImage = loadImage;
 }
