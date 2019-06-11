@@ -1,6 +1,13 @@
-import {OnDestroy, OnInit} from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
+import { OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { Observable, ReplaySubject, Subject } from 'rxjs';
 
+export interface SimpleChangeWrapper {
+  /**
+   * The property name which changes
+   */
+  property: string;
+  change: SimpleChange;
+}
 /**
  * This should be the very base component of every angular component
  * It uses OnInit and OnDestroy, so remember to call super.ngOnInit() at first
@@ -29,9 +36,10 @@ import { Observable, ReplaySubject } from 'rxjs';
  *   this.onInit$().subscribe(() => console.log(this.someVar));
  * }
  */
-export abstract class BaseComponent implements OnDestroy, OnInit {
+export abstract class BaseComponent implements OnDestroy, OnInit, OnChanges {
   private onDestroy$ubject: ReplaySubject<void>;
   private onInit$ubject: ReplaySubject<void>;
+  private onChanges$ubject: Subject<SimpleChangeWrapper>;
 
   /**
    * Emits when the angular component gets destroyed
@@ -43,12 +51,19 @@ export abstract class BaseComponent implements OnDestroy, OnInit {
    */
   onInit$: Observable<void>;
 
+  /**
+   * Emits when the angular component receive a new Input value
+   */
+  onChanges$: Observable<SimpleChangeWrapper>;
+
   constructor() {
     this.onDestroy$ubject = new ReplaySubject(1);
     this.onInit$ubject = new ReplaySubject(1);
+    this.onChanges$ubject = new Subject();
 
     this.onDestroy$ = this.onDestroy$ubject.asObservable();
     this.onInit$ = this.onInit$ubject.asObservable();
+    this.onChanges$ = this.onChanges$ubject.asObservable();
   }
 
   ngOnInit() {
@@ -59,5 +74,16 @@ export abstract class BaseComponent implements OnDestroy, OnInit {
   ngOnDestroy() {
     this.onDestroy$ubject.next(undefined);
     this.onDestroy$ubject.complete();
+    this.onChanges$ubject.complete();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const changedProperties = Object.keys(changes);
+    changedProperties.forEach(changedProperty => {
+      this.onChanges$ubject.next({
+        property: changedProperty,
+        change: changes[changedProperty]
+      });
+    });
   }
 }
