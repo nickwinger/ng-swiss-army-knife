@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>SwissArmyKnife</li>
+  <li>StringHelper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/ng-swiss-army-knife/src/public_api.ts</code>
+            <code>projects/ng-swiss-army-knife/src/lib/helper/string.ts</code>
         </p>
 
 
@@ -81,15 +81,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#BaseComponent">BaseComponent</a>
+                                <a href="#padLeft">padLeft</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#Helper">Helper</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#PubSubService">PubSubService</a>
+                                <a href="#padRight">padRight</a>
                             </li>
                         </ul>
                     </td>
@@ -114,30 +110,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="BaseComponent"></a>
+                        <a name="padLeft"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Static</span>
-                            BaseComponent
+                            padLeft
                             </b>
-                            <a href="#BaseComponent"><span class="icon ion-ios-link"></span></a>
+                            <a href="#padLeft"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>BaseComponent:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>padLeft:     <code></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>BaseComponent</code>
+                            <i>Default value : </i><code>padLeft</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/string.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -148,64 +144,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="Helper"></a>
+                        <a name="padRight"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Static</span>
-                            Helper
+                            padRight
                             </b>
-                            <a href="#Helper"><span class="icon ion-ios-link"></span></a>
+                            <a href="#padRight"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>Helper:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>padRight:     <code></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>Helper</code>
+                            <i>Default value : </i><code>padRight</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:19</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="PubSubService"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            PubSubService
-                            </b>
-                            <a href="#PubSubService"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>PubSubService:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>PubSubService</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/string.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -224,23 +186,37 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Helper } from &#x27;./lib/helper&#x27;;
-import { PubSubService } from &#x27;./lib/services/pub-sub.service&#x27;;
-import { BaseComponent } from &#x27;./lib/classes/base.component&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { escapeXml } from &#x27;./misc&#x27;;
 
-export * from &#x27;./lib/services/pub-sub.service&#x27;;
-export * from &#x27;./lib/ng-swiss-army-knife.module&#x27;;
-export * from &#x27;./lib/helper&#x27;;
-export * from &#x27;./lib/helper/file&#x27;;
-export * from &#x27;./lib/helper/form&#x27;;
-export * from &#x27;./lib/helper/misc&#x27;;
-export * from &#x27;./lib/helper/string&#x27;;
-export * from &#x27;./lib/classes/base.component&#x27;;
+/**
+ * Padding the string left
+ * @param s the string which to pad
+ * @param length the length the string should be padded to
+ * @param padChar the char which to use to fill up the string
+ */
+export function padLeft(s: string, length: number, padChar: string): string {
+  while (s.length &lt; length)
+    s &#x3D; padChar + s;
 
-export class SwissArmyKnife {
-  static Helper &#x3D; Helper;
-  static PubSubService &#x3D; PubSubService;
-  static BaseComponent &#x3D; BaseComponent;
+  return s;
+}
+
+/**
+ * Padding the string right
+ * @param s the string which to pad
+ * @param length the length the string should be padded to
+ * @param padChar the char which to use to fill up the string
+ */
+export function padRight(s: string, length: number, padChar: string): string {
+  while (s.length &lt; length)
+    s +&#x3D; padChar;
+
+  return s;
+}
+
+export class StringHelper {
+  static padLeft &#x3D; padLeft;
+  static padRight &#x3D; padRight;
 }
 </code></pre>
     </div>
@@ -269,7 +245,7 @@ export class SwissArmyKnife {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'SwissArmyKnife.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'StringHelper.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

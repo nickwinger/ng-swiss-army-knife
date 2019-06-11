@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>SwissArmyKnife</li>
+  <li>FileHelper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/ng-swiss-army-knife/src/public_api.ts</code>
+            <code>projects/ng-swiss-army-knife/src/lib/helper/file.ts</code>
         </p>
 
 
@@ -81,15 +81,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#BaseComponent">BaseComponent</a>
+                                <a href="#createAndClickDownloadLink">createAndClickDownloadLink</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#Helper">Helper</a>
+                                <a href="#createCsvDataUriFromArray">createCsvDataUriFromArray</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#PubSubService">PubSubService</a>
+                                <a href="#downloadArrayAsCsvFile">downloadArrayAsCsvFile</a>
                             </li>
                         </ul>
                     </td>
@@ -114,30 +114,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="BaseComponent"></a>
+                        <a name="createAndClickDownloadLink"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Static</span>
-                            BaseComponent
+                            createAndClickDownloadLink
                             </b>
-                            <a href="#BaseComponent"><span class="icon ion-ios-link"></span></a>
+                            <a href="#createAndClickDownloadLink"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>BaseComponent:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>createAndClickDownloadLink:     <code></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>BaseComponent</code>
+                            <i>Default value : </i><code>createAndClickDownloadLink</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -148,30 +148,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="Helper"></a>
+                        <a name="createCsvDataUriFromArray"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Static</span>
-                            Helper
+                            createCsvDataUriFromArray
                             </b>
-                            <a href="#Helper"><span class="icon ion-ios-link"></span></a>
+                            <a href="#createCsvDataUriFromArray"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>Helper:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>createCsvDataUriFromArray:     <code></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>Helper</code>
+                            <i>Default value : </i><code>createCsvDataUriFromArray</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:50</a></div>
                             </td>
                         </tr>
 
@@ -182,30 +182,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="PubSubService"></a>
+                        <a name="downloadArrayAsCsvFile"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Static</span>
-                            PubSubService
+                            downloadArrayAsCsvFile
                             </b>
-                            <a href="#PubSubService"><span class="icon ion-ios-link"></span></a>
+                            <a href="#downloadArrayAsCsvFile"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>PubSubService:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>downloadArrayAsCsvFile:     <code></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>PubSubService</code>
+                            <i>Default value : </i><code>downloadArrayAsCsvFile</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -224,23 +224,51 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Helper } from &#x27;./lib/helper&#x27;;
-import { PubSubService } from &#x27;./lib/services/pub-sub.service&#x27;;
-import { BaseComponent } from &#x27;./lib/classes/base.component&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export function createAndClickDownloadLink(url: string, fileName: string) {
+  const link &#x3D; document.createElement(&#x27;a&#x27;);
 
-export * from &#x27;./lib/services/pub-sub.service&#x27;;
-export * from &#x27;./lib/ng-swiss-army-knife.module&#x27;;
-export * from &#x27;./lib/helper&#x27;;
-export * from &#x27;./lib/helper/file&#x27;;
-export * from &#x27;./lib/helper/form&#x27;;
-export * from &#x27;./lib/helper/misc&#x27;;
-export * from &#x27;./lib/helper/string&#x27;;
-export * from &#x27;./lib/classes/base.component&#x27;;
+  if (link.download &#x3D;&#x3D;&#x3D; undefined)
+    return;
 
-export class SwissArmyKnife {
-  static Helper &#x3D; Helper;
-  static PubSubService &#x3D; PubSubService;
-  static BaseComponent &#x3D; BaseComponent;
+  link.setAttribute(&#x27;href&#x27;, url);
+  link.setAttribute(&#x27;download&#x27;, fileName);
+  link.style.visibility &#x3D; &#x27;hidden&#x27;;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+/**
+ * Creates a csv data uri from an array, this uri can then be downloaded in the browser
+ * using createAndClickDownloadLink
+ * @param data an array of string arrays containing the csv data
+ */
+export function createCsvDataUriFromArray(data: string[][], delimiter: string &#x3D; &#x27;;&#x27;): string {
+  let csvContent &#x3D; &#x27;data:text/csv;charset&#x3D;utf-8,&#x27;;
+
+  data.forEach(rowArray &#x3D;&gt; {
+    const row &#x3D; rowArray.join(delimiter);
+    csvContent +&#x3D; row + &#x27;\r\n&#x27;;
+  });
+  
+  return csvContent;
+}
+
+/**
+ * Creates a csv file from the array using createCsvDataUriFromArray
+ * And presents it to the user as a download file in the browser
+ * @param data an array of string arrays containing the csv data
+ * @param filename the name of the csv file which will be downloaded
+ */
+export function downloadArrayAsCsvFile(data: string[][], filename: string, delimiter: string &#x3D; &#x27;;&#x27;): void {
+  const csv &#x3D; createCsvDataUriFromArray(data, delimiter);
+  createAndClickDownloadLink(csv, filename);
+}
+
+export class FileHelper {
+  static createAndClickDownloadLink &#x3D; createAndClickDownloadLink;
+  static createCsvDataUriFromArray &#x3D; createCsvDataUriFromArray;
+  static downloadArrayAsCsvFile &#x3D; downloadArrayAsCsvFile;
 }
 </code></pre>
     </div>
@@ -269,7 +297,7 @@ export class SwissArmyKnife {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'SwissArmyKnife.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'FileHelper.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

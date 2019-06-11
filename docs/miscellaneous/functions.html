@@ -60,10 +60,16 @@
                             <a href="#callFuncOnFormGroupAndChildren" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>callFuncOnFormGroupAndChildren</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
                         </li>
                         <li>
-                            <a href="#createAndClickDownloadLink" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>createAndClickDownloadLink</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                            <a href="#createAndClickDownloadLink" title="projects/ng-swiss-army-knife/src/lib/helper/file.ts"><b>createAndClickDownloadLink</b>&nbsp;&nbsp;&nbsp;(projects/.../file.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createCsvDataUriFromArray" title="projects/ng-swiss-army-knife/src/lib/helper/file.ts"><b>createCsvDataUriFromArray</b>&nbsp;&nbsp;&nbsp;(projects/.../file.ts)</a>
                         </li>
                         <li>
                             <a href="#decodeURIJson" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>decodeURIJson</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#downloadArrayAsCsvFile" title="projects/ng-swiss-army-knife/src/lib/helper/file.ts"><b>downloadArrayAsCsvFile</b>&nbsp;&nbsp;&nbsp;(projects/.../file.ts)</a>
                         </li>
                         <li>
                             <a href="#encodeURIJson" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>encodeURIJson</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
@@ -90,6 +96,9 @@
                             <a href="#jsonIsEqual" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>jsonIsEqual</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
                         </li>
                         <li>
+                            <a href="#loadImage" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>loadImage</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
+                        </li>
+                        <li>
                             <a href="#markFormGroupAsDirty" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>markFormGroupAsDirty</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
                         </li>
                         <li>
@@ -103,6 +112,12 @@
                         </li>
                         <li>
                             <a href="#markFormGroupAsUntouched" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>markFormGroupAsUntouched</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#padLeft" title="projects/ng-swiss-army-knife/src/lib/helper/string.ts"><b>padLeft</b>&nbsp;&nbsp;&nbsp;(projects/.../string.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#padRight" title="projects/ng-swiss-army-knife/src/lib/helper/string.ts"><b>padRight</b>&nbsp;&nbsp;&nbsp;(projects/.../string.ts)</a>
                         </li>
                         <li>
                             <a href="#removeBodyCssClass" title="projects/ng-swiss-army-knife/src/lib/helper/misc.ts"><b>removeBodyCssClass</b>&nbsp;&nbsp;&nbsp;(projects/.../misc.ts)</a>
@@ -556,7 +571,7 @@ as untouched</p>
             </tbody>
         </table>
 </section>
-    <h3>projects/ng-swiss-army-knife/src/lib/helper/misc.ts</h3>
+    <h3>projects/ng-swiss-army-knife/src/lib/helper/file.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
@@ -632,6 +647,166 @@ as untouched</p>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createCsvDataUriFromArray"></a>
+                        <span class="name">
+                            <b>
+                            createCsvDataUriFromArray
+                            </b>
+                            <a href="#createCsvDataUriFromArray"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>createCsvDataUriFromArray(data, delimiter)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates a csv data uri from an array, this uri can then be downloaded in the browser
+using createAndClickDownloadLink</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>an array of string arrays containing the csv data</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>delimiter</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadArrayAsCsvFile"></a>
+                        <span class="name">
+                            <b>
+                            downloadArrayAsCsvFile
+                            </b>
+                            <a href="#downloadArrayAsCsvFile"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>downloadArrayAsCsvFile(data, filename, delimiter)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates a csv file from the array using createCsvDataUriFromArray
+And presents it to the user as a download file in the browser</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>an array of string arrays containing the csv data</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>filename</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the name of the csv file which will be downloaded</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>delimiter</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/ng-swiss-army-knife/src/lib/helper/misc.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
@@ -1145,6 +1320,68 @@ So this method does not compare the reference but all the values inside</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="loadImage"></a>
+                        <span class="name">
+                            <b>
+                            loadImage
+                            </b>
+                            <a href="#loadImage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>loadImage(url)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>*
+Used to preload image. Returns a stream containing the Html Image Element on success
+or the error in case of an error</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>url</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>The image src url to load</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="removeBodyCssClass"></a>
                         <span class="name">
                             <b>
@@ -1467,6 +1704,181 @@ And returns this property in an observable</p>
                                                     
 
                                                         <td>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/ng-swiss-army-knife/src/lib/helper/string.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="padLeft"></a>
+                        <span class="name">
+                            <b>
+                            padLeft
+                            </b>
+                            <a href="#padLeft"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>padLeft(s, length, padChar)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Padding the string left</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>s</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the string which to pad</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>length</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the length the string should be padded to</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>padChar</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the char which to use to fill up the string</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="padRight"></a>
+                        <span class="name">
+                            <b>
+                            padRight
+                            </b>
+                            <a href="#padRight"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>padRight(s, length, padChar)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Padding the string right</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>s</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the string which to pad</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>length</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the length the string should be padded to</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>padChar</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the char which to use to fill up the string</p>
+</code>
                                                         </td>
                                                 </tr>
                                         </tbody>
