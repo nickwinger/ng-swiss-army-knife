@@ -166,6 +166,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges } from &#x27;@angular/core&#x27;;
 import { Observable, ReplaySubject, Subject } from &#x27;rxjs&#x27;;
+import { filter, map } from &#x27;rxjs/operators&#x27;;
 
 export interface SimpleChangeWrapper {
   /**
@@ -210,17 +211,17 @@ export abstract class BaseComponent implements OnDestroy, OnInit, OnChanges {
   /**
    * Emits when the angular component gets destroyed
    */
-  onDestroy$: Observable&lt;void&gt;;
+  readonly onDestroy$: Observable&lt;void&gt;;
 
   /**
    * Emits when the angular component gets initialized
    */
-  onInit$: Observable&lt;void&gt;;
+  readonly onInit$: Observable&lt;void&gt;;
 
   /**
    * Emits when the angular component receive a new Input value
    */
-  onChanges$: Observable&lt;SimpleChangeWrapper&gt;;
+  readonly onChanges$: Observable&lt;SimpleChangeWrapper&gt;;
 
   constructor() {
     this.onDestroy$ubject &#x3D; new ReplaySubject(1);
@@ -230,6 +231,22 @@ export abstract class BaseComponent implements OnDestroy, OnInit, OnChanges {
     this.onDestroy$ &#x3D; this.onDestroy$ubject.asObservable();
     this.onInit$ &#x3D; this.onInit$ubject.asObservable();
     this.onChanges$ &#x3D; this.onChanges$ubject.asObservable();
+  }
+
+  /**
+   * Returns the SimpleChange event for the given property
+   * @param property The property (name of the @Input) for which to filter
+   */
+  onChangesByProperty$(property: string): Observable&lt;SimpleChange&gt; {
+    return this.onChanges$.pipe(filter(ch &#x3D;&gt; ch.property &#x3D;&#x3D;&#x3D; property), map(ch &#x3D;&gt; ch.change));
+  }
+
+  /**
+   * Returns the currentValue of the SimpleChange event for the given property
+   * @param property The property (name of the @Input) for which to filter
+   */
+  onChangesCurrentValueByProperty$&lt;T&gt;(property: string): Observable&lt;T&gt; {
+    return this.onChanges$.pipe(filter(ch &#x3D;&gt; ch.property &#x3D;&#x3D;&#x3D; property), map(ch &#x3D;&gt; ch.change.currentValue));
   }
 
   ngOnInit() {

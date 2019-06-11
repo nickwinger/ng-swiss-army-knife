@@ -1,5 +1,6 @@
 import { OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 export interface SimpleChangeWrapper {
   /**
@@ -44,17 +45,17 @@ export abstract class BaseComponent implements OnDestroy, OnInit, OnChanges {
   /**
    * Emits when the angular component gets destroyed
    */
-  onDestroy$: Observable<void>;
+  readonly onDestroy$: Observable<void>;
 
   /**
    * Emits when the angular component gets initialized
    */
-  onInit$: Observable<void>;
+  readonly onInit$: Observable<void>;
 
   /**
    * Emits when the angular component receive a new Input value
    */
-  onChanges$: Observable<SimpleChangeWrapper>;
+  readonly onChanges$: Observable<SimpleChangeWrapper>;
 
   constructor() {
     this.onDestroy$ubject = new ReplaySubject(1);
@@ -64,6 +65,22 @@ export abstract class BaseComponent implements OnDestroy, OnInit, OnChanges {
     this.onDestroy$ = this.onDestroy$ubject.asObservable();
     this.onInit$ = this.onInit$ubject.asObservable();
     this.onChanges$ = this.onChanges$ubject.asObservable();
+  }
+
+  /**
+   * Returns the SimpleChange event for the given property
+   * @param property The property (name of the @Input) for which to filter
+   */
+  onChangesByProperty$(property: string): Observable<SimpleChange> {
+    return this.onChanges$.pipe(filter(ch => ch.property === property), map(ch => ch.change));
+  }
+
+  /**
+   * Returns the currentValue of the SimpleChange event for the given property
+   * @param property The property (name of the @Input) for which to filter
+   */
+  onChangesCurrentValueByProperty$<T>(property: string): Observable<T> {
+    return this.onChanges$.pipe(filter(ch => ch.property === property), map(ch => ch.change.currentValue));
   }
 
   ngOnInit() {
