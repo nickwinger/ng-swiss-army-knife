@@ -29,17 +29,21 @@ export function isNumber(ch: string): boolean {
  * And returns this property in an observable
  * @param obj The object which holds the property
  * @param (obj: TObject) => TProperty propertyAccessor the property accessor function
+ * @param (prop: TProperty) => boolean the default checks if the property is not undefined to be valid
+ * and finish waiting. Here you can provide a custom function, e.g. also checking if it is not null
  * @param number retries How many 100 milliseconds it should wait for the property
  * @returns Observable<TProperty>
  */
 export function waitForProperty<TObject, TProperty>
-(obj: TObject, propertyAccessor: (obj: TObject) => TProperty, retries: number = 50): Observable<TProperty> {
+(obj: TObject, propertyAccessor: (obj: TObject) => TProperty,
+ isPropertyValidFunc: (prop: TProperty) => boolean = prop => prop !== undefined,
+ retries: number = 50): Observable<TProperty> {
   let retry = 0;
   const returnSubject = new AsyncSubject<TProperty>();
 
   const interval = setInterval(() => {
     const property = propertyAccessor(obj);
-    if (property !== undefined) {
+    if (isPropertyValidFunc(property)) {
       clearInterval(interval);
       returnSubject.next(property);
       returnSubject.complete();
