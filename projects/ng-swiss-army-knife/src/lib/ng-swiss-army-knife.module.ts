@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
+import { RoundNumberPipe } from './pipes/roundNumber.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [RoundNumberPipe],
   imports: [
   ],
-  exports: []
+  exports: [RoundNumberPipe]
 })
 export class SwissArmyKnifeModule { }

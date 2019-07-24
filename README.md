@@ -15,6 +15,11 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
+### Pipes:
+**roundNumber pipe**
+takes one argument, the digits to round the number
+e.g. {{0.123123 | roundNumber:2}}
+
 ### SCSS Styles:
 You can include the atoms.scss to be able to do atom-styling, meaning
 you have one css class for one styling property, e.g.:
