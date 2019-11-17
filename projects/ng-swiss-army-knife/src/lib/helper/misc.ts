@@ -17,6 +17,25 @@ export function escapeXml(unsafeHTML: string): string {
 }
 
 /**
+ * Creates a hidden link to download something given the href url
+ * @param url The url which to download
+ * @param fileName The name of the file to be downloaded (used for the a tag)
+ */
+export function createAndClickDownloadLink(url: string, fileName: string) {
+  const link = document.createElement('a');
+
+  if (link.download === undefined)
+    return;
+
+  link.setAttribute('href', url);
+  link.setAttribute('download', fileName);
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+/**
  * Checks if a string is a number
  * @param ch The string which to check for number
  */
@@ -179,7 +198,40 @@ export function roundNumber(num: number, digits: number = 2): number {
   return Math.round(num * +digitOperator) / +digitOperator;
 }
 
+export function createThumbnailFromBase64Image(base64Image: string, targetSize: number
+                                               ): Observable<string> {
+  return new Observable<string>(subscriber => {
+    const img = new Image();
+
+    img.onload = () => {
+      const width = img.width;
+      const height = img.height;
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      canvas.width = canvas.height = targetSize;
+
+      ctx.drawImage(
+        img,
+        width > height ? (width - height) / 2 : 0,
+        height > width ? (height - width) / 2 : 0,
+        width > height ? height : width,
+        width > height ? height : width,
+        0, 0,
+        targetSize, targetSize
+      );
+
+      subscriber.next(canvas.toDataURL());
+      subscriber.complete();
+    };
+
+    img.src = base64Image;
+  });
+}
+
 export class MiscHelper {
+  static createThumbnailFromBase64Image = createThumbnailFromBase64Image;
+  static createAndClickDownloadLink = createAndClickDownloadLink;
   static escapeXml = escapeXml;
   static isNumber = isNumber;
   static waitForProperty = waitForProperty;
