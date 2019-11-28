@@ -51,7 +51,7 @@ names if the are just loose.
 * To create a new version and automatically deploy to NPM: 
 * 1. manually update the version in the projects/ng-swiss-army-knife/package.json
   2. GIT Commit
-  3. "npm version <newversion>" in project root
+  3. "npm version NEW_VERSION" in project root
   (git push --follow-tags may not work inside npm, then you have to type it manually)
   4. Commit and Push to Git
   
