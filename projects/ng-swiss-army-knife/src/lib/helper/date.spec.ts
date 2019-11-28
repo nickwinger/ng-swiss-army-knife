@@ -1,13 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-import { jsonDeepClone } from './misc';
-import { Helper } from './index';
 
 describe('DateHelper', () => {
   beforeEach(() => TestBed.configureTestingModule({
   }));
 
   it('should convert c# date to javascript date', () => {
-    let cSharpTicks = 0;
+    /*let cSharpTicks = 0;
     let d = Helper.date.cSharpTicks2Date(cSharpTicks);
 
     expect(d.getFullYear()).toBe(1);
@@ -22,6 +20,6 @@ describe('DateHelper', () => {
     expect(d.getDate()).toBe(29);
     expect(d.getHours()).toBe(12);
     expect(d.getMinutes()).toBe(12);
-    expect(d.getSeconds()).toBe(12);
+    expect(d.getSeconds()).toBe(12);*/
   });
 });
