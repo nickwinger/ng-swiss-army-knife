@@ -14,6 +14,7 @@ export * from './lib/helper/form';
 export * from './lib/helper/misc';
 export * from './lib/helper/string';
 export * from './lib/classes/base.component';
+export * from './lib/helper/date';
 
 export class SwissArmyKnife {
   static Helper = Helper;
