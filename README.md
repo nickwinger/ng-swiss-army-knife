@@ -15,6 +15,99 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
+### BaseClasses
+#### StatefulObject
+If you are fed up about implementing a whole Redux solution, this might be your bet.
+It's a simple solution to have a stateful object that should be immutable.
+You can use it as a base class for a state of your own.
+e.g.:
+
+Using the Class as it is as a global state service 
+
+```
+@Injectable({
+    providedIn: 'root'
+})
+export class MyStateService extends StatefulObject<MyState> {
+    constructor() {
+        super();
+        this.setState({name: 'Nick', age: 40});
+    }    
+}
+
+export interface MyState {
+    name: string;
+    age: number;
+}
+export class MyComponecnt {
+    constructor(state: MyStateService) {
+        state.state$.subscribe(newState => {
+            // do something with the new state
+        });
+        // Set partial state
+        state.setState({
+            name: 'Tom'
+        });
+    }
+}
+```
+or maybe with a more complex state you can provide your own getter setter methods
+```
+@Injectable({
+    providedIn: 'root'
+})
+export class MyStateService extends StatefulObject<MyComplexState> {
+    constructor() {
+        super();
+        this.setState({
+            name: 'Nick', 
+            age: 40, 
+            settings: {
+                language: 'en'
+            }
+        });
+    }
+
+    setLanguage(lang: string) {
+        this.setState({
+            settings: {
+                ...this.stateSnapshot.settings,
+                language: lang
+            }
+        });
+    }
+
+    getLanguage(): string {
+        return this.stateSnapshot.settings.language;
+    }
+    
+    getLanguage$() {
+        return this.state$.map(s => s.settings.language);
+    }
+}
+
+export interface StateSettings {
+    language: string;
+}
+export interface MyComplexState {
+    name: string;
+    age: number;
+    settings: StateSettings;
+}
+export class MyComponecnt {
+    constructor(state: MyStateService) {
+        state.state$.subscribe(newState => {
+            // do something with the new state
+        });
+        // Set partial state
+        state.setLanguage('de');
+    }
+}
+```
+You see, you can mess around like you wish, it's really just
+a simple base class for those who either want it quick and (not so) dirty
+or make a nice StateService out of it without implementing comples redux libraries.
+
 ### Pipes:
 **roundNumber pipe**
 takes one argument, the digits to round the number
