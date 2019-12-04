@@ -40,6 +40,90 @@ that are often used in different angular projects.</p>
 <h2 id="installation">Installation</h2>
 <p>run  <code>npm i ng-swiss-army-knife --save</code></p>
 <h2 id="api">API</h2>
+<h3 id="baseclasses">BaseClasses</h3>
+<h4 id="statefulobject">StatefulObject</h4>
+<p>If you are fed up about implementing a whole Redux solution, this might be your bet.
+It&#39;s a simple solution to have a stateful object that should be immutable.
+You can use it as a base class for a state of your own.
+e.g.:</p>
+<p>Using the Class as it is as a global state service </p>
+<div><pre class="line-numbers"><code class="language-none">&#64;Injectable({
+    providedIn: &#39;root&#39;
+})
+export class MyStateService extends StatefulObject&lt;MyState&gt; {
+    constructor() {
+        super();
+        this.setState({name: &#39;Nick&#39;, age: 40});
+    }    
+}
+
+export interface MyState {
+    name: string;
+    age: number;
+}
+export class MyComponecnt {
+    constructor(state: MyStateService) {
+        state.state$.subscribe(newState =&gt; {
+            // do something with the new state
+        });
+        // Set partial state
+        state.setState({
+            name: &#39;Tom&#39;
+        });
+    }
+}</code></pre></div><p>or maybe with a more complex state you can provide your own getter setter methods</p>
+<div><pre class="line-numbers"><code class="language-none">&#64;Injectable({
+    providedIn: &#39;root&#39;
+})
+export class MyStateService extends StatefulObject&lt;MyComplexState&gt; {
+    constructor() {
+        super();
+        this.setState({
+            name: &#39;Nick&#39;, 
+            age: 40, 
+            settings: {
+                language: &#39;en&#39;
+            }
+        });
+    }
+
+    setLanguage(lang: string) {
+        this.setState({
+            settings: {
+                ...this.stateSnapshot.settings,
+                language: lang
+            }
+        });
+    }
+
+    getLanguage(): string {
+        return this.stateSnapshot.settings.language;
+    }
+
+    getLanguage$() {
+        return this.state$.map(s =&gt; s.settings.language);
+    }
+}
+
+export interface StateSettings {
+    language: string;
+}
+export interface MyComplexState {
+    name: string;
+    age: number;
+    settings: StateSettings;
+}
+export class MyComponecnt {
+    constructor(state: MyStateService) {
+        state.state$.subscribe(newState =&gt; {
+            // do something with the new state
+        });
+        // Set partial state
+        state.setLanguage(&#39;de&#39;);
+    }
+}</code></pre></div><p>You see, you can mess around like you wish, it&#39;s really just
+a simple base class for those who either want it quick and (not so) dirty
+or make a nice StateService out of it without implementing comples redux libraries.</p>
 <h3 id="pipes-">Pipes:</h3>
 <p><strong>roundNumber pipe</strong>
 takes one argument, the digits to round the number
@@ -69,7 +153,7 @@ names if the are just loose.
 <li><ol>
 <li>manually update the version in the projects/ng-swiss-army-knife/package.json</li>
 <li>GIT Commit</li>
-<li>&quot;npm version <newversion>&quot; in project root
+<li>&quot;npm version NEW_VERSION&quot; in project root
 (git push --follow-tags may not work inside npm, then you have to type it manually)</li>
 <li>Commit and Push to Git</li>
 </ol>

@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>Helper</li>
+  <li>StatefulObject</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/ng-swiss-army-knife/src/lib/helper/index.ts</code>
+            <code>projects/ng-swiss-army-knife/src/lib/classes/stateFulObject.ts</code>
         </p>
 
 
@@ -80,24 +80,31 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#date">date</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#state$">state$</a>
                             </li>
                             <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#file">file</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#stateSnapshot">stateSnapshot</a>
                             </li>
                             <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#form">form</a>
+                                    <span class="modifier">Protected</span>
+                                <a href="#stateSubject">stateSubject</a>
                             </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
                             <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#misc">misc</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#string">string</a>
+                                <a href="#setState">setState</a>
                             </li>
                         </ul>
                     </td>
@@ -107,11 +114,28 @@
 
 
 
-
         </tbody>
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/classes/stateFulObject.ts:7</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -122,30 +146,31 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="date"></a>
+                        <a name="state$"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Static</span>
-                            date
+                                <span class="modifier">Public</span>
+                            state$
                             </b>
-                            <a href="#date"><span class="icon ion-ios-link"></span></a>
+                            <a href="#state$"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>date:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>state$:     <code>Observable&lt;T&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>DateHelper</code>
+                            <i>Type : </i>    <code>Observable&lt;T&gt;</code>
+
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/classes/stateFulObject.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -156,30 +181,31 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="file"></a>
+                        <a name="stateSnapshot"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Static</span>
-                            file
+                                <span class="modifier">Public</span>
+                            stateSnapshot
                             </b>
-                            <a href="#file"><span class="icon ion-ios-link"></span></a>
+                            <a href="#stateSnapshot"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>file:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>stateSnapshot:     <code>T</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>FileHelper</code>
+                            <i>Type : </i>    <code>T</code>
+
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/classes/stateFulObject.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -190,98 +216,31 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="form"></a>
+                        <a name="stateSubject"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Static</span>
-                            form
+                                <span class="modifier">Protected</span>
+                            stateSubject
                             </b>
-                            <a href="#form"><span class="icon ion-ios-link"></span></a>
+                            <a href="#stateSubject"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>form:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>stateSubject:     <code>BehaviorSubject&lt;T&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>FormHelper</code>
+                            <i>Type : </i>    <code>BehaviorSubject&lt;T&gt;</code>
+
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:9</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="misc"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            misc
-                            </b>
-                            <a href="#misc"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>misc:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>MiscHelper</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:10</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="string"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            string
-                            </b>
-                            <a href="#string"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>string:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>StringHelper</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/classes/stateFulObject.ts:5</a></div>
                             </td>
                         </tr>
 
@@ -290,6 +249,81 @@
         </table>
 </section>
 
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setState"></a>
+                        <span class="name">
+                            <b>
+                            setState
+                            </b>
+                            <a href="#setState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setState(newState: Partial<T>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/classes/stateFulObject.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>newState</td>
+                                                        <td>
+                                                                    <code>Partial&lt;T&gt;</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -300,18 +334,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FormHelper } from &#x27;./form&#x27;;
-import { MiscHelper } from &#x27;./misc&#x27;;
-import { FileHelper } from &#x27;./file&#x27;;
-import { StringHelper } from &#x27;./string&#x27;;
-import { DateHelper } from &#x27;./date&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
 
-export class Helper {
-  static date &#x3D; DateHelper;
-  static form &#x3D; FormHelper;
-  static misc &#x3D; MiscHelper;
-  static file &#x3D; FileHelper;
-  static string &#x3D; StringHelper;
+export class StatefulObject&lt;T&gt; {
+
+  protected stateSubject: BehaviorSubject&lt;T&gt;;
+  public state$: Observable&lt;T&gt;;
+  public stateSnapshot: T;
+
+  constructor() {
+    this.stateSubject &#x3D; new BehaviorSubject&lt;T&gt;({} as any);
+    this.state$ &#x3D; this.stateSubject.asObservable();
+    this.stateSubject.subscribe(s &#x3D;&gt; this.stateSnapshot &#x3D; s);
+  }
+
+  setState(newState: Partial&lt;T&gt;) {
+    this.stateSubject.next({
+      ...this.stateSubject.getValue(),
+      ...newState
+    });
+  }
 }
 </code></pre>
     </div>
@@ -340,7 +382,7 @@ export class Helper {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'Helper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatefulObject.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
