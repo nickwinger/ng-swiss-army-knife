@@ -1,6 +1,6 @@
 import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { filter, map, startWith } from 'rxjs/operators';
+import { BehaviorSubject, concat, Observable, of, Subject } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 export interface ValueChange<T> {
   key: string;
@@ -39,10 +39,8 @@ export class KeyValueStoreService<TStore> {
     return this.store$.getValue();
   }
 
-  getStore$(startWithCurrentValue = true): Observable<TStore> {
-    return startWithCurrentValue ? this.store$.asObservable()
-      .pipe(startWith(this.getStore()))
-      : this.store$.asObservable();
+  getStore$(): Observable<TStore> {
+    return this.store$.asObservable();
   }
 
   getAllChanges$(): Observable<ValueChange<any>> {
@@ -55,11 +53,10 @@ export class KeyValueStoreService<TStore> {
 
   getValue$<T>(key: string, startWithCurrentValue = true): Observable<T> {
     return startWithCurrentValue ?
-      this.changes$.asObservable().pipe(
-        startWith(this.getValue(key)),
+      concat(of(this.getValue(key)), this.changes$.asObservable().pipe(
         filter(change => change.key === key),
         map(change => change.currentValue)
-      )
+      ))
       : this.changes$.asObservable().pipe(
       filter(change => change.key === key),
       map(change => change.currentValue)

@@ -10,7 +10,7 @@ describe('KeyValueStoreService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be created', () => {
+  it('should set and retrieve value', () => {
     const service: KeyValueStoreService<any> = TestBed.get(KeyValueStoreService);
     service.setValue('foo', 'bar');
     const value = service.getValue('foo');
