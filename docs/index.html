@@ -40,90 +40,66 @@ that are often used in different angular projects.</p>
 <h2 id="installation">Installation</h2>
 <p>run  <code>npm i ng-swiss-army-knife --save</code></p>
 <h2 id="api">API</h2>
-<h3 id="baseclasses">BaseClasses</h3>
-<h4 id="statefulobject">StatefulObject</h4>
+<h3 id="services">Services</h3>
+<h4 id="pubsubservice">PubSubService</h4>
+<p>Simple publish/subscribe service.</p>
+<p>Userful for inter-component communication</p>
+<h4 id="keyvaluestore">KeyValueStore</h4>
 <p>If you are fed up about implementing a whole Redux solution, this might be your bet.
-It&#39;s a simple solution to have a stateful object that should be immutable.
-You can use it as a base class for a state of your own.
+It&#39;s a simple solution to have a key-value store that is synced to the localstorage.
 e.g.:</p>
-<p>Using the Class as it is as a global state service </p>
-<div><pre class="line-numbers"><code class="language-none">&#64;Injectable({
-    providedIn: &#39;root&#39;
-})
-export class MyStateService extends StatefulObject&lt;MyState&gt; {
-    constructor() {
-        super();
-        this.setState({name: &#39;Nick&#39;, age: 40});
-    }    
-}
-
-export interface MyState {
-    name: string;
-    age: number;
-}
-export class MyComponecnt {
-    constructor(state: MyStateService) {
-        state.state$.subscribe(newState =&gt; {
-            // do something with the new state
-        });
-        // Set partial state
-        state.setState({
-            name: &#39;Tom&#39;
-        });
-    }
-}</code></pre></div><p>or maybe with a more complex state you can provide your own getter setter methods</p>
-<div><pre class="line-numbers"><code class="language-none">&#64;Injectable({
-    providedIn: &#39;root&#39;
-})
-export class MyStateService extends StatefulObject&lt;MyComplexState&gt; {
-    constructor() {
-        super();
-        this.setState({
-            name: &#39;Nick&#39;, 
-            age: 40, 
-            settings: {
-                language: &#39;en&#39;
-            }
-        });
-    }
-
-    setLanguage(lang: string) {
-        this.setState({
-            settings: {
-                ...this.stateSnapshot.settings,
-                language: lang
-            }
-        });
-    }
-
-    getLanguage(): string {
-        return this.stateSnapshot.settings.language;
-    }
-
-    getLanguage$() {
-        return this.state$.map(s =&gt; s.settings.language);
-    }
-}
-
-export interface StateSettings {
+<div><pre class="line-numbers"><code class="language-none">export interface Store {
+    darkMode: boolean;
     language: string;
 }
-export interface MyComplexState {
-    name: string;
-    age: number;
-    settings: StateSettings;
-}
-export class MyComponecnt {
-    constructor(state: MyStateService) {
-        state.state$.subscribe(newState =&gt; {
-            // do something with the new state
-        });
-        // Set partial state
-        state.setLanguage(&#39;de&#39;);
+
+// Optionally you can define an initial store state
+// but if there is already something in the localstorage stored
+// it will be taken from the localstorage
+&#64;NgModule({
+    ...
+  providers: [
+    ...
+    {
+      provide: KeyValueStoreInitialValue,
+      useValue: &lt;Store&gt;{
+        darkMode: true,
+        language: &#39;de&#39;
+      }
     }
-}</code></pre></div><p>You see, you can mess around like you wish, it&#39;s really just
-a simple base class for those who either want it quick and (not so) dirty
-or make a nice StateService out of it without implementing comples redux libraries.</p>
+  ],
+})
+export class AppModule {
+}
+
+export class MyComponent {
+    constructor(store: KeyValueStoreService&lt;Store&gt;) {
+        this.store.getValue$&lt;string&gt;(&#39;language&#39;).subscribe(language =&gt; {
+          this.translate.use(language);
+        });
+
+        this.store.setValue(&#39;language&#39;, &#39;en&#39;);
+        const currentLang = this.store.getValue&lt;string&gt;(&#39;language&#39;);
+
+        this.store.getValue$&lt;boolean&gt;(&#39;darkMode&#39;).subscribe(darkMode =&gt; {
+          this.helper.toggleDarkTheme(darkMode);
+        });
+
+        this.store.getStore$().subscribe(store =&gt; {
+          console.log(&#39;saving to backend&#39;, store);
+        });
+
+        this.store.getAllChanges$().subscribe(change =&gt; {
+            console.log(`key ${change.key} changed from ${change.previousValue} to ${change.currentValue}`);
+        });
+
+        this.store.getValueChanges$&lt;boolean&gt;(&#39;darkMode&#39;).subscribe(change =&gt; {
+            console.log(`darkMode changed from ${change.previousValue} to ${change.currentValue}`);
+        });
+    }    
+}</code></pre></div><p>I find this useful in nearly every project you need some simple key value solution which you can subscribe to
+and i find myself writing the same logic again when i don&#39;t want to implement
+a whole store/redux solution which might be just over complicated or too much.</p>
 <h3 id="pipes-">Pipes:</h3>
 <p><strong>roundNumber pipe</strong>
 takes one argument, the digits to round the number
