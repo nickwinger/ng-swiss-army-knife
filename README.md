@@ -15,98 +15,71 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
-### BaseClasses
-#### StatefulObject
+### Services
+#### PubSubService
+Simple publish/subscribe service.
+
+Userful for inter-component communication
+#### KeyValueStore
 If you are fed up about implementing a whole Redux solution, this might be your bet.
-It's a simple solution to have a stateful object that should be immutable.
-You can use it as a base class for a state of your own.
+It's a simple solution to have a key-value store that is synced to the localstorage.
 e.g.:
 
-Using the Class as it is as a global state service 
-
 ```
-@Injectable({
-    providedIn: 'root'
-})
-export class MyStateService extends StatefulObject<MyState> {
-    constructor() {
-        super();
-        this.setState({name: 'Nick', age: 40});
-    }    
-}
-
-export interface MyState {
-    name: string;
-    age: number;
-}
-export class MyComponecnt {
-    constructor(state: MyStateService) {
-        state.state$.subscribe(newState => {
-            // do something with the new state
-        });
-        // Set partial state
-        state.setState({
-            name: 'Tom'
-        });
-    }
-}
-```
-or maybe with a more complex state you can provide your own getter setter methods
-```
-@Injectable({
-    providedIn: 'root'
-})
-export class MyStateService extends StatefulObject<MyComplexState> {
-    constructor() {
-        super();
-        this.setState({
-            name: 'Nick', 
-            age: 40, 
-            settings: {
-                language: 'en'
-            }
-        });
-    }
-
-    setLanguage(lang: string) {
-        this.setState({
-            settings: {
-                ...this.stateSnapshot.settings,
-                language: lang
-            }
-        });
-    }
-
-    getLanguage(): string {
-        return this.stateSnapshot.settings.language;
-    }
-    
-    getLanguage$() {
-        return this.state$.map(s => s.settings.language);
-    }
-}
-
-export interface StateSettings {
+export interface Store {
+    darkMode: boolean;
     language: string;
 }
-export interface MyComplexState {
-    name: string;
-    age: number;
-    settings: StateSettings;
-}
-export class MyComponecnt {
-    constructor(state: MyStateService) {
-        state.state$.subscribe(newState => {
-            // do something with the new state
-        });
-        // Set partial state
-        state.setLanguage('de');
+
+// Optionally you can define an initial store state
+// but if there is already something in the localstorage stored
+// it will be taken from the localstorage
+@NgModule({
+    ...
+  providers: [
+    ...
+    {
+      provide: KeyValueStoreInitialValue,
+      useValue: <Store>{
+        darkMode: true,
+        language: 'de'
+      }
     }
+  ],
+})
+export class AppModule {
+}
+
+export class MyComponent {
+    constructor(store: KeyValueStoreService<Store>) {
+        this.store.getValue$<string>('language').subscribe(language => {
+          this.translate.use(language);
+        });
+
+        this.store.setValue('language', 'en');
+        const currentLang = this.store.getValue<string>('language');
+    
+        this.store.getValue$<boolean>('darkMode').subscribe(darkMode => {
+          this.helper.toggleDarkTheme(darkMode);
+        });
+    
+        this.store.getStore$().subscribe(store => {
+          console.log('saving to backend', store);
+        });
+
+        this.store.getAllChanges$().subscribe(change => {
+            console.log(`key ${change.key} changed from ${change.previousValue} to ${change.currentValue}`);
+        });
+
+        this.store.getValueChanges$<boolean>('darkMode').subscribe(change => {
+            console.log(`darkMode changed from ${change.previousValue} to ${change.currentValue}`);
+        });
+    }    
 }
 ```
-You see, you can mess around like you wish, it's really just
-a simple base class for those who either want it quick and (not so) dirty
-or make a nice StateService out of it without implementing comples redux libraries.
+I find this useful in nearly every project you need some simple key value solution which you can subscribe to
+and i find myself writing the same logic again when i don't want to implement
+a whole store/redux solution which might be just over complicated or too much.
 
 ### Pipes:
 **roundNumber pipe**
