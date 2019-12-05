@@ -73,7 +73,7 @@ export class KeyValueStoreService<TStore> {
   }
 
   getValue<T>(key: string): T {
-    return this.getFromLocalStorage<T>(key);
+    return this.getStore()[key];
   }
 
   setValue<T>(key: string, value: T) {
