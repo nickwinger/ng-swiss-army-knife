@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-import { dateAddDays, dateAddHours, dateAddMinutes, dateAddMonths, dateAddSeconds, dateAddYears, dateSubstractDays } from './date';
+import {
+  dateAddDays, dateAddHours, dateAddMinutes, dateAddMonths, dateAddSeconds, dateAddYears, dateSubstractDays, isNow, isToday, isYesterday
+} from './date';
 
 describe('DateHelper', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -94,5 +96,23 @@ describe('DateHelper', () => {
     expect(newDate.getMinutes()).toBe(12);
     expect(newDate.getSeconds()).toBe(13);
     expect(newDate.getMilliseconds()).toBe(12);
+  });
+
+  it('should be today', () => {
+    const testDate = new Date(Date.now());
+
+    expect(isToday(testDate)).toBe(true);
+  });
+
+  it('should be yesterday', () => {
+    const testDate = dateSubstractDays(new Date(Date.now()), 1);
+
+    expect(isYesterday(testDate)).toBe(true);
+  });
+
+  it('should be now', () => {
+    const testDate = new Date(Date.now());
+
+    expect(isNow(testDate)).toBe(true);
   });
 });

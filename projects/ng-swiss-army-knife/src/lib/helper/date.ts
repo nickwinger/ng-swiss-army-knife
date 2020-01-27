@@ -97,7 +97,64 @@ export function dateSubstractMilliSeconds(date, milliseconds) {
   return result;
 }
 
+export function isToday(date): boolean {
+  let ret = true;
+  const now = new Date(Date.now());
+
+  if (now.getFullYear() !== date.getFullYear())
+    ret = false;
+  if (now.getMonth() !== date.getMonth())
+    ret = false;
+  if (now.getDate() !== date.getDate())
+    ret = false;
+
+  return ret;
+}
+
+export function isYesterday(date): boolean {
+  let ret = true;
+  const yesterday = dateSubstractDays(new Date(Date.now()), 1);
+
+  if (yesterday.getFullYear() !== date.getFullYear())
+    ret = false;
+  if (yesterday.getMonth() !== date.getMonth())
+    ret = false;
+  if (yesterday.getDate() !== date.getDate())
+    ret = false;
+
+  return ret;
+}
+
+export enum IsNowGranulartiy {
+  Hours, Minutes, Seconds, Milliseconds
+}
+
+export function isNow(date, granularity = IsNowGranulartiy.Minutes): boolean {
+  let ret = true;
+  const now = new Date(Date.now());
+
+  if (now.getFullYear() !== date.getFullYear())
+    ret = false;
+  if (now.getMonth() !== date.getMonth())
+    ret = false;
+  if (now.getDate() !== date.getDate())
+    ret = false;
+  if (now.getHours() !== date.getHours())
+    ret = false;
+  if (now.getMinutes() !== date.getMinutes() && granularity >= IsNowGranulartiy.Minutes)
+    ret = false;
+  if (now.getSeconds() !== date.getSeconds() && granularity >= IsNowGranulartiy.Seconds)
+    ret = false;
+  if (now.getMilliseconds() !== date.getMilliseconds() && granularity >= IsNowGranulartiy.Milliseconds)
+    ret = false;
+
+  return ret;
+}
+
 export class DateHelper {
+  static isNow = isNow;
+  static isToday = isToday;
+  static isYesterday = isYesterday;
   static cSharpTicks2Date = cSharpTicks2Date;
   static dateAddYears = dateAddYears;
   static dateSubstractYears = dateSubstractYears;
