@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { jsonDeepClone } from './misc';
-import { padLeft, padRight } from './string';
+import { padLeft, padRight, replaceAll } from './string';
 
 describe('StringHelper', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -36,5 +35,11 @@ describe('StringHelper', () => {
     s = padLeft(s, 1, '0');
 
     expect(s).toBe('1');
+  });
+
+  it('should replace all', () => {
+    let s = 'foo.bar.is.good';
+    s = replaceAll(s, '.', '_');
+    expect(s).toBe('foo_bar_is_good');
   });
 });

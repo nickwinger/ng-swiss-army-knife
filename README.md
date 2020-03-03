@@ -15,6 +15,29 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
+### Functions
+#### createAutoIndexer
+With this method you can merge 2 Objects properties. You have a main object and a an object that extends the  main object.
+This is usefull if you want to implement an interface in a class but you don't want
+to copy and assign all the properties of the interface object.
+Then automagically all the properties of the anonymous interface object can be access through the merged
+object and you can extend it.
+E.g.:
+```
+export class Container implements Partial<IContainer> {
+   constructor(private wrapped: IContainer) {
+   }
+ 
+   get fullPath(): string {
+     return !!this.wrapped.path ? this.wrapped.path + '.' + this.wrapped.id :
+       this.wrapped.id;
+   }
+ 
+   static create(wrapped: IContainer): Container {
+     return createAutoIndexer(new Container(wrapped), wrapped);
+   }
+ }
+```
 ### Services
 #### PubSubService
 Simple publish/subscribe service.
