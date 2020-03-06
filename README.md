@@ -15,6 +15,13 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
+### Directives
+#### ngIonSync
+This is a workaround helper for Ionic4/5 using Angular-Reactive-Forms.
+If you programmatically use the markAs*** functions on an angular form control it won't sync up to the ion-input or ion-item.
+This attribute directive syncs these css classes as a workaround because it is still not working see:
+https://github.com/ionic-team/ionic/issues/20650
+ 
 ### Functions
 #### createAutoIndexer
 With this method you can merge 2 Objects properties. You have a main object and a an object that extends the  main object.
