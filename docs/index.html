@@ -40,8 +40,69 @@ that are often used in different angular projects.</p>
 <h2 id="installation">Installation</h2>
 <p>run  <code>npm i ng-swiss-army-knife --save</code></p>
 <h2 id="api">API</h2>
-<h3 id="services">Services</h3>
-<h4 id="pubsubservice">PubSubService</h4>
+<h3 id="classes">Classes</h3>
+<h4 id="cachedobservable">CachedObservable</h4>
+<p>How many times you wanted a cached observable out of the box ?
+Here you have it.
+Give it a cache duration in seconds and the rest works automagically.
+e.g.:</p>
+<div><pre class="line-numbers"><code class="language-none">export class ApiService {
+  myCachedApiCall$: CachedObservable&lt;string[]&gt;;
+
+  constructor(protected http: HttpClient) {
+  }
+
+  getAllNames(): Observable&lt;string[]&gt; {
+    if (!this.myCachedApiCall$) {
+      this.myCachedApiCall$ = new CachedObservable(60, // Cache for one  minute
+        this.http.get&lt;string[]&gt;(`${environment.urls.apiUrl}/getAllNames`));
+    }
+
+    return this.myCachedApiCall$.getObservable();
+  }
+}</code></pre></div><p>For convenience there is also a cachedObservable service (see section services), which is even 
+more simpler to use.</p>
+<h3 id="directives">Directives</h3>
+<h4 id="ngionsync">ngIonSync</h4>
+<p>This is a workaround helper for Ionic4/5 using Angular-Reactive-Forms.
+If you programmatically use the markAs*** functions on an angular form control it won&#39;t sync up to the ion-input or ion-item.
+This attribute directive syncs these css classes as a workaround because it is still not working see:
+<a href="https://github.com/ionic-team/ionic/issues/20650">https://github.com/ionic-team/ionic/issues/20650</a></p>
+<h3 id="functions">Functions</h3>
+<h4 id="createautoindexer">createAutoIndexer</h4>
+<p>With this method you can merge 2 Objects properties. You have a main object and a an object that extends the  main object.
+This is usefull if you want to implement an interface in a class but you don&#39;t want
+to copy and assign all the properties of the interface object.
+Then automagically all the properties of the anonymous interface object can be access through the merged
+object and you can extend it.
+E.g.:</p>
+<div><pre class="line-numbers"><code class="language-none">export class Container implements Partial&lt;IContainer&gt; {
+   constructor(private wrapped: IContainer) {
+   }
+
+   get fullPath(): string {
+     return !!this.wrapped.path ? this.wrapped.path + &#39;.&#39; + this.wrapped.id :
+       this.wrapped.id;
+   }
+
+   static create(wrapped: IContainer): Container {
+     return createAutoIndexer(new Container(wrapped), wrapped);
+   }
+ }</code></pre></div><h3 id="services">Services</h3>
+<h4 id="cachedobservableservice">CachedObservableService</h4>
+<p>How many times you wanted a cache your api calls out of the box ?
+Here you have it.
+Give it a cache duration in seconds and the rest works automagically.
+e.g.:</p>
+<div><pre class="line-numbers"><code class="language-none">export class ApiService {
+  constructor(private http: HttpClient, private CachedObservableService) {
+  }
+
+  getAllNames(): Observable&lt;string[]&gt; {
+    return this.cache.getOrCreate&lt;string[]&gt;(&#39;getAllNames&#39;, 60 * 15,
+      this.http.get&lt;string[]&gt;(`${environment.urls.apiUrl}/getAllNames`));
+  }
+}</code></pre></div><h4 id="pubsubservice">PubSubService</h4>
 <p>Simple publish/subscribe service.</p>
 <p>Userful for inter-component communication</p>
 <h4 id="keyvaluestore">KeyValueStore</h4>

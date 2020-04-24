@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>StringHelper</li>
+  <li>ObjectHelper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/ng-swiss-army-knife/src/lib/helper/string.ts</code>
+            <code>projects/ng-swiss-army-knife/src/lib/helper/object.ts</code>
         </p>
 
 
@@ -81,15 +81,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#padLeft">padLeft</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#padRight">padRight</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#replaceAll">replaceAll</a>
+                                <a href="#createAutoIndexer">createAutoIndexer</a>
                             </li>
                         </ul>
                     </td>
@@ -114,98 +106,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="padLeft"></a>
+                        <a name="createAutoIndexer"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Static</span>
-                            padLeft
+                            createAutoIndexer
                             </b>
-                            <a href="#padLeft"><span class="icon ion-ios-link"></span></a>
+                            <a href="#createAutoIndexer"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>padLeft:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>createAutoIndexer:     <code></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>padLeft</code>
+                            <i>Default value : </i><code>createAutoIndexer</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/string.ts:48</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="padRight"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            padRight
-                            </b>
-                            <a href="#padRight"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>padRight:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>padRight</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/string.ts:49</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="replaceAll"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            replaceAll
-                            </b>
-                            <a href="#replaceAll"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>replaceAll:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>replaceAll</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/string.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/object.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -224,49 +148,25 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export function padLeft(s: string, length: number, padChar: string): string {
-  while (s.length &lt; length)
-    s &#x3D; padChar + s;
-
-  return s;
-}
-
-/**
- * Padding the string right
- * @param s the string which to pad
- * @param length the length the string should be padded to
- * @param padChar the char which to use to fill up the string
- */
-export function padRight(s: string, length: number, padChar: string): string {
-  while (s.length &lt; length)
-    s +&#x3D; padChar;
-
-  return s;
-}
-
-/**
- * Replace all occurences in the string
- * @param str The string in which to replace something
- * @param find The string to replace
- * @param replace The string that will replace the find string
- */
-export function replaceAll(str: string, find: string, replace: string): string {
-  let ret &#x3D; &#x27;&#x27;;
-  for (const ch of str) {
-    if (ch &#x3D;&#x3D;&#x3D; find) {
-      ret +&#x3D; replace;
-    } else {
-      ret +&#x3D; ch;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export function createAutoIndexer(mainObject: any, extendedObject: any) {
+  const handler &#x3D; {
+    get: (obj, prop) &#x3D;&gt; {
+      return prop in mainObject ?
+        mainObject[prop] :
+        extendedObject[prop];
+    },
+    set: (obj, prop, value) &#x3D;&gt; {
+      return prop in mainObject ?
+        mainObject[prop] &#x3D; value :
+        extendedObject[prop] &#x3D; value;
     }
-  }
+  };
 
-  return ret;
+  return new Proxy(mainObject, handler);
 }
 
-export class StringHelper {
-  static replaceAll &#x3D; replaceAll;
-  static padLeft &#x3D; padLeft;
-  static padRight &#x3D; padRight;
+export class ObjectHelper {
+  static createAutoIndexer &#x3D; createAutoIndexer;
 }
 </code></pre>
     </div>
@@ -295,7 +195,7 @@ export class StringHelper {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'StringHelper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ObjectHelper.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

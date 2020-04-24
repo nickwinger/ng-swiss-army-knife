@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>Helper</li>
+  <li>CachedObservable</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/ng-swiss-army-knife/src/lib/helper/index.ts</code>
+            <code>projects/ng-swiss-army-knife/src/lib/classes/cachedObservable.ts</code>
         </p>
 
 
@@ -80,28 +80,27 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#date">date</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#lastUpdatedSeconds">lastUpdatedSeconds</a>
                             </li>
                             <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#file">file</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#replaySubject">replaySubject</a>
                             </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
                             <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#form">form</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#misc">misc</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#object">object</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#string">string</a>
+                                <a href="#getObservable">getObservable</a>
                             </li>
                         </ul>
                     </td>
@@ -111,11 +110,70 @@
 
 
 
-
         </tbody>
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(cacheDurationSeconds: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observable: Observable<T>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/classes/cachedObservable.ts:6</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>cacheDurationSeconds</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>observable</td>
+                                                  
+                                                        <td>
+                                                                    <code>Observable&lt;T&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -126,30 +184,31 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="date"></a>
+                        <a name="lastUpdatedSeconds"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Static</span>
-                            date
+                                <span class="modifier">Private</span>
+                            lastUpdatedSeconds
                             </b>
-                            <a href="#date"><span class="icon ion-ios-link"></span></a>
+                            <a href="#lastUpdatedSeconds"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>date:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>lastUpdatedSeconds:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>DateHelper</code>
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/classes/cachedObservable.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -160,166 +219,31 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="file"></a>
+                        <a name="replaySubject"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Static</span>
-                            file
+                                <span class="modifier">Private</span>
+                            replaySubject
                             </b>
-                            <a href="#file"><span class="icon ion-ios-link"></span></a>
+                            <a href="#replaySubject"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>file:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>replaySubject:     <code>ReplaySubject&lt;T&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>FileHelper</code>
+                            <i>Type : </i>    <code>ReplaySubject&lt;T&gt;</code>
+
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:12</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="form"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            form
-                            </b>
-                            <a href="#form"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>form:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>FormHelper</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:10</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="misc"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            misc
-                            </b>
-                            <a href="#misc"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>misc:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>MiscHelper</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:11</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="object"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            object
-                            </b>
-                            <a href="#object"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>object:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>ObjectHelper</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:14</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="string"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Static</span>
-                            string
-                            </b>
-                            <a href="#string"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>string:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>StringHelper</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/index.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/classes/cachedObservable.ts:5</a></div>
                             </td>
                         </tr>
 
@@ -328,6 +252,50 @@
         </table>
 </section>
 
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getObservable"></a>
+                        <span class="name">
+                            <b>
+                            getObservable
+                            </b>
+                            <a href="#getObservable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getObservable()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/classes/cachedObservable.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -338,20 +306,32 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FormHelper } from &#x27;./form&#x27;;
-import { MiscHelper } from &#x27;./misc&#x27;;
-import { FileHelper } from &#x27;./file&#x27;;
-import { StringHelper } from &#x27;./string&#x27;;
-import { DateHelper } from &#x27;./date&#x27;;
-import { ObjectHelper } from &#x27;./object&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable, ReplaySubject } from &#x27;rxjs&#x27;;
+import { tap } from &#x27;rxjs/operators&#x27;;
 
-export class Helper {
-  static date &#x3D; DateHelper;
-  static form &#x3D; FormHelper;
-  static misc &#x3D; MiscHelper;
-  static file &#x3D; FileHelper;
-  static string &#x3D; StringHelper;
-  static object &#x3D; ObjectHelper;
+export class CachedObservable&lt;T&gt; {
+  private replaySubject: ReplaySubject&lt;T&gt;;
+  private lastUpdatedSeconds: number;
+
+  constructor(private cacheDurationSeconds: number,
+              private observable: Observable&lt;T&gt;) {
+    this.replaySubject      &#x3D; new ReplaySubject&lt;T&gt;(1);
+    this.lastUpdatedSeconds &#x3D; 0;
+  }
+
+  getObservable(): Observable&lt;T&gt; {
+    // Update the cache ?
+    if (this.lastUpdatedSeconds &lt;
+      Date.now() / 1000 - this.cacheDurationSeconds) {
+      this.observable.pipe(
+        tap(() &#x3D;&gt; this.lastUpdatedSeconds &#x3D;
+          Date.now() / 1000),
+        tap(response &#x3D;&gt; this.replaySubject.next(response))
+      ).subscribe();
+    }
+
+    return this.replaySubject.asObservable();
+  }
 }
 </code></pre>
     </div>
@@ -380,7 +360,7 @@ export class Helper {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'Helper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CachedObservable.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

@@ -190,9 +190,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Inject, Injectable, InjectionToken, Optional} from &#x27;@angular/core&#x27;;
-import {BehaviorSubject, Observable, Subject} from &#x27;rxjs&#x27;;
-import {filter, map} from &#x27;rxjs/operators&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable, InjectionToken, Optional } from &#x27;@angular/core&#x27;;
+import { BehaviorSubject, concat, Observable, of, Subject } from &#x27;rxjs&#x27;;
+import { filter, map } from &#x27;rxjs/operators&#x27;;
 
 export interface ValueChange&lt;T&gt; {
   key: string;
@@ -243,8 +243,13 @@ export class KeyValueStoreService&lt;TStore&gt; {
     this.store$ &#x3D; new BehaviorSubject&lt;TStore&gt;((this.initialStore || {}) as TStore);
   }
 
-  getValue$&lt;T&gt;(key: string): Observable&lt;T&gt; {
-    return this.changes$.asObservable().pipe(
+  getValue$&lt;T&gt;(key: string, startWithCurrentValue &#x3D; true): Observable&lt;T&gt; {
+    return startWithCurrentValue ?
+      concat(of(this.getValue(key)), this.changes$.asObservable().pipe(
+        filter(change &#x3D;&gt; change.key &#x3D;&#x3D;&#x3D; key),
+        map(change &#x3D;&gt; change.currentValue)
+      ))
+      : this.changes$.asObservable().pipe(
       filter(change &#x3D;&gt; change.key &#x3D;&#x3D;&#x3D; key),
       map(change &#x3D;&gt; change.currentValue)
     );
@@ -265,7 +270,7 @@ export class KeyValueStoreService&lt;TStore&gt; {
   }
 
   getValue&lt;T&gt;(key: string): T {
-    return this.getFromLocalStorage&lt;T&gt;(key);
+    return this.getStore()[key];
   }
 
   setValue&lt;T&gt;(key: string, value: T) {

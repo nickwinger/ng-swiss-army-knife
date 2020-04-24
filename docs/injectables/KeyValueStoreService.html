@@ -254,7 +254,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/services/key-value-store.service.ts:67</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/services/key-value-store.service.ts:72</a></div>
                             </td>
                         </tr>
 
@@ -407,7 +407,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/services/key-value-store.service.ts:75</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/services/key-value-store.service.ts:80</a></div>
                             </td>
                         </tr>
 
@@ -477,7 +477,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getValue$(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getValue$(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, startWithCurrentValue)</code>
                     </td>
                 </tr>
 
@@ -508,6 +508,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Default value</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -521,6 +522,22 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                        </td>
+
+                                                </tr>
+                                                <tr>
+                                                        <td>startWithCurrentValue</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code>true</code>
+                                                        </td>
 
                                                 </tr>
                                         </tbody>
@@ -561,7 +578,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/services/key-value-store.service.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/services/key-value-store.service.ts:66</a></div>
                             </td>
                         </tr>
 
@@ -676,7 +693,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/services/key-value-store.service.ts:79</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/services/key-value-store.service.ts:84</a></div>
                             </td>
                         </tr>
 
@@ -867,9 +884,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Inject, Injectable, InjectionToken, Optional} from &#x27;@angular/core&#x27;;
-import {BehaviorSubject, Observable, Subject} from &#x27;rxjs&#x27;;
-import {filter, map} from &#x27;rxjs/operators&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable, InjectionToken, Optional } from &#x27;@angular/core&#x27;;
+import { BehaviorSubject, concat, Observable, of, Subject } from &#x27;rxjs&#x27;;
+import { filter, map } from &#x27;rxjs/operators&#x27;;
 
 export interface ValueChange&lt;T&gt; {
   key: string;
@@ -920,8 +937,13 @@ export class KeyValueStoreService&lt;TStore&gt; {
     this.store$ &#x3D; new BehaviorSubject&lt;TStore&gt;((this.initialStore || {}) as TStore);
   }
 
-  getValue$&lt;T&gt;(key: string): Observable&lt;T&gt; {
-    return this.changes$.asObservable().pipe(
+  getValue$&lt;T&gt;(key: string, startWithCurrentValue &#x3D; true): Observable&lt;T&gt; {
+    return startWithCurrentValue ?
+      concat(of(this.getValue(key)), this.changes$.asObservable().pipe(
+        filter(change &#x3D;&gt; change.key &#x3D;&#x3D;&#x3D; key),
+        map(change &#x3D;&gt; change.currentValue)
+      ))
+      : this.changes$.asObservable().pipe(
       filter(change &#x3D;&gt; change.key &#x3D;&#x3D;&#x3D; key),
       map(change &#x3D;&gt; change.currentValue)
     );
@@ -942,7 +964,7 @@ export class KeyValueStoreService&lt;TStore&gt; {
   }
 
   getValue&lt;T&gt;(key: string): T {
-    return this.getFromLocalStorage&lt;T&gt;(key);
+    return this.getStore()[key];
   }
 
   setValue&lt;T&gt;(key: string, value: T) {
