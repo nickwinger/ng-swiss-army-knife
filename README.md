@@ -15,6 +15,31 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
+### Classes
+#### CachedObservable
+How many times you wanted a cached observable out of the box ?
+Here you have it.
+Give it a cache duration in seconds and the rest works automagically.
+e.g.:
+```
+export class ApiService {
+  myCachedApiCall$: CachedObservable<string[]>;
+
+  constructor(protected http: HttpClient) {
+  }
+
+  getAllNames(): Observable<string[]> {
+    if (!this.myCachedApiCall$) {
+      this.myCachedApiCall$ = new CachedObservable(60, // Cache for one  minute
+        this.http.get<string[]>(`${environment.urls.apiUrl}/getAllNames`));
+    }
+
+    return this.myCachedApiCall$.getObservable();
+  }
+}
+```
+For convenience there is also a cachedObservable service (see section services), which is even 
+more simpler to use.
 ### Directives
 #### ngIonSync
 This is a workaround helper for Ionic4/5 using Angular-Reactive-Forms.
@@ -46,6 +71,23 @@ export class Container implements Partial<IContainer> {
  }
 ```
 ### Services
+#### CachedObservableService
+How many times you wanted a cache your api calls out of the box ?
+Here you have it.
+Give it a cache duration in seconds and the rest works automagically.
+e.g.:
+```
+export class ApiService {
+  constructor(private http: HttpClient, private CachedObservableService) {
+  }
+
+  getAllNames(): Observable<string[]> {
+    return this.cache.getOrCreate<string[]>('getAllNames', 60 * 15,
+      this.http.get<string[]>(`${environment.urls.apiUrl}/getAllNames`));
+  }
+}
+```
+
 #### PubSubService
 Simple publish/subscribe service.
 
