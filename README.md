@@ -51,6 +51,14 @@ If you programmatically use the markAs*** functions on an angular form control i
 This attribute directive syncs these css classes as a workaround because it is still not working see:
 https://github.com/ionic-team/ionic/issues/20650
  
+#### ShadowDomStyleDirective - Styling ShadowDom
+With this directive you can style an element inside the shadow dom.
+This is useful e.g. for Ionic Components which all hidden by the Shadow-Dom.
+<br>
+Usage Example:<br>
+```
+<ion-item [shadowStyle]="{selector: '.input-wrapper', style: { overflow: 'visible'}}">
+```
 ### Functions
 #### createAutoIndexer
 With this method you can merge 2 Objects properties. You have a main object and a an object that extends the  main object.
