@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input } from '@angular/core';
-import { waitForProperty } from 'ng-swiss-army-knife';
+import { waitForProperty } from '../helper/misc';
 
 export interface ShadowDomStyleDirectiveParam {
   selector: string;

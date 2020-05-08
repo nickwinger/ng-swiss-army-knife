@@ -7,6 +7,7 @@ import { PubSubService } from './lib/services/pub-sub.service';
 import { BaseComponent } from './lib/classes/base.component';
 import { FormValidators } from './lib/validators';
 
+export * from './lib/ng-swiss-army-knife.module';
 export * from './lib/services/pub-sub.service';
 export * from './lib/services/key-value-store.service';
 export * from './lib/services/cachedObservable.service';
@@ -21,6 +22,9 @@ export * from './lib/classes/cachedObservable';
 export * from './lib/helper/date';
 export * from './lib/helper/object';
 export * from './lib/validators';
+export * from './lib/directives/ng-ionic-sync-formcontrol-classes/ng-ionic-sync-formcontrol-classes.directive';
+export * from './lib/directives/shadowDomStyle.directive';
+export * from './lib/pipes/roundNumber.pipe';
 
 export class SwissArmyKnife {
   static FormValidators = FormValidators;
