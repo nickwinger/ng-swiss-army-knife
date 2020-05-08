@@ -15,6 +15,10 @@ run  `npm i ng-swiss-army-knife --save`
 
 ## API
 
+### Form Validators
+#### dateGreaterThan
+Checks if a date is greater than another (angular form controls)
+
 ### Classes
 #### CachedObservable
 How many times you wanted a cached observable out of the box ?
