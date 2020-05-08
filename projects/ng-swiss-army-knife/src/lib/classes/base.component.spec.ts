@@ -45,6 +45,7 @@ describe('base.component', () => {
 
   it('should emit onChanges', (done: DoneFn) => {
     const fixture = TestBed.createComponent(MyBaseWrapperComponent);
+    fixture.detectChanges();
     fixture.componentInstance.mybase.onChanges$.subscribe(change => {
       expect(change.property).toBe('inputTest');
       expect(change.change.currentValue).toBe('test');
@@ -57,6 +58,7 @@ describe('base.component', () => {
 
   it('should emit onChangesByProperty', (done: DoneFn) => {
     const fixture = TestBed.createComponent(MyBaseWrapperComponent);
+    fixture.detectChanges();
     fixture.componentInstance.mybase.onChangesByProperty$('inputTest').subscribe(change => {
       expect(change.currentValue).toBe('test');
       done();
@@ -68,6 +70,7 @@ describe('base.component', () => {
 
   it('should emit onChangesCurrentValueByProperty', (done: DoneFn) => {
     const fixture = TestBed.createComponent(MyBaseWrapperComponent);
+    fixture.detectChanges();
     fixture.componentInstance.mybase.onChangesCurrentValueByProperty$<string>('inputTest').subscribe(value => {
       expect(value).toBe('test');
       done();
