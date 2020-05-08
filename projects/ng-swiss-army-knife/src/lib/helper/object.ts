@@ -23,6 +23,24 @@ export function createAutoIndexer(mainObject: any, extendedObject: any) {
   return new Proxy(mainObject, handler);
 }
 
+/***
+ * Checks if the given object has a specific constructor name
+ * e.g: hasConstructorName(new Date(), 'Date')
+ * @param obj the object to check for if it has the correct constructor name
+ */
+export function hasConstructorName(obj: object, constructorName: string): boolean {
+  if (typeof obj !== 'object') {
+    return false;
+  }
+
+  if (obj.constructor.name !== constructorName) {
+    return false;
+  }
+
+  return true;
+}
+
 export class ObjectHelper {
+  static hasConstructorName = hasConstructorName;
   static createAutoIndexer = createAutoIndexer;
 }

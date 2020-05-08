@@ -1,4 +1,5 @@
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { hasConstructorName } from './helper/object';
 
 /***
  * Checks if a form control date is greater than another form control date
@@ -23,6 +24,28 @@ export function dateGreaterThan(lowerDateControl: AbstractControl, formValue2Dat
   };
 }
 
+/***
+ * This validator function must  be used on the formGroup level, see
+ * https://angular.io/guide/form-validation#cross-field-validation
+ * @param controlNames the controlNames which at least on must  have a value
+ * @param hasValueFunc Optional a function to tell if the control has a value or not
+ */
+export function anyRequired(controlNames: string[],
+                            hasValueFunc: (c: AbstractControl) => boolean
+                              = c => !!c.value): ValidatorFn {
+  return (fb: FormGroup): ValidationErrors | null => {
+    if (!hasConstructorName(fb, 'FormGroup')) {
+      throw new Error('Validator anyRequired must be on form level. See https://angular.io/guide/form-validation#cross-field-validation');
+    }
+
+    const someHasValue = controlNames.some(
+      controlName => hasValueFunc(fb.get(controlName)));
+
+    return someHasValue ? null : {anyRequired: true};
+  };
+}
+
 export class FormValidators {
+  static anyRequired = anyRequired;
   static dateGreaterThan = dateGreaterThan;
 }

@@ -18,6 +18,36 @@ run  `npm i ng-swiss-army-knife --save`
 ### Form Validators
 #### dateGreaterThan
 Checks if a date is greater than another (angular form controls)
+<br>
+E.g.:
+```
+this.form = fb.group({
+      dateFrom: ['', [Validators.required]],
+      dateTo: ['']     
+    });
+
+    this.form.controls.dateTo.setValidators(
+      FormValidators.dateGreaterThan(this.form.controls.dateFrom,
+        (value: string) => new Date(value)));
+```
+
+#### anyRequired
+Checks if any given FormControl has a value. This validator must  be used on form level, see
+https://angular.io/guide/form-validation#cross-field-validation
+<br>
+E.g.:
+```
+this.form = fb.group({
+      dateFrom: ['', [Validators.required]],
+      dateTo: [''],
+      days: [0],
+      hours: [0],
+      minutes: [0],
+      timespanMode: ['timespanMinutesFromNow']
+    }, {
+      validators: [this.anyRequired(['days', 'hours', 'minutes'])]
+    });
+```
 
 ### Classes
 #### CachedObservable
