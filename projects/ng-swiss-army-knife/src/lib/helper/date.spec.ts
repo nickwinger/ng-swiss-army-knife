@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import {
-  dateAddDays, dateAddHours, dateAddMinutes, dateAddMonths, dateAddSeconds, dateAddYears, dateSubstractDays, isNow, isToday, isYesterday
+  dateAddDays, dateAddHours, dateAddMinutes, dateAddMonths, dateAddSeconds, dateAddYears, dateSubstractDays, isDate, isNow, isToday,
+  isYesterday
 } from './date';
 
 describe('DateHelper', () => {
@@ -114,5 +115,19 @@ describe('DateHelper', () => {
     const testDate = new Date(Date.now());
 
     expect(isNow(testDate)).toBe(true);
+  });
+
+  it('should be a date object', () => {
+    const testDate = new Date(Date.now());
+
+    expect(isDate(testDate)).toBe(true);
+  });
+
+  it('should not be a date object', () => {
+    const testDate = {
+      foo: 'bar'
+    };
+
+    expect(isDate(testDate)).toBe(false);
   });
 });

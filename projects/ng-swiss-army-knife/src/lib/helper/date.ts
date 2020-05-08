@@ -151,7 +151,24 @@ export function isNow(date, granularity = IsNowGranulartiy.Minutes): boolean {
   return ret;
 }
 
+/***
+ * Checks if the given object is a date object
+ * @param obj the object to check for if it is a date or not
+ */
+export function isDate(obj: object): boolean {
+  if (typeof obj !== 'object') {
+    return false;
+  }
+
+  if (obj.constructor.name !== 'Date') {
+    return false;
+  }
+
+  return true;
+}
+
 export class DateHelper {
+  static isDate = isDate;
   static isNow = isNow;
   static isToday = isToday;
   static isYesterday = isYesterday;
