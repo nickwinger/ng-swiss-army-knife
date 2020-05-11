@@ -16,7 +16,13 @@ export class ShadowDomStyleDirective {
 
     waitForProperty(elem, obj => elem.shadowRoot.querySelector(value.selector))
       .subscribe((shadowElem: HTMLElement) => {
-        for (let style of Object.keys(value.style)) {
+        if (!shadowElem || !value) {
+          return;
+        }
+        for (const style of Object.keys(value.style)) {
+          if (!shadowElem.style || !value.style) {
+            continue;
+          }
           shadowElem.style[style] = value.style[style];
         }
       });
