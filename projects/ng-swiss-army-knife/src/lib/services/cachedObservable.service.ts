@@ -26,7 +26,7 @@ export class CachedObservableService {
    */
   refresh(key: string) {
     if (this.dictionary.has(key)) {
-      this.dictionary[key].refresh();
+      this.dictionary.get(key).refresh();
     }
   }
 
