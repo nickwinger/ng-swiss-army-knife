@@ -21,6 +21,15 @@ export class CachedObservableService {
     }
   }
 
+  /***
+   * Refreshes (refetches) the observable
+   */
+  refresh(key: string) {
+    if (this.dictionary.has(key)) {
+      this.dictionary[key].refresh();
+    }
+  }
+
   getOrCreate<T>(key: string, cacheDurationSeconds: number,
                  observable: Observable<T>): Observable<T> {
     if (!this.dictionary.has(key)) {
