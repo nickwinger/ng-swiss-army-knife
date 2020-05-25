@@ -11,6 +11,13 @@ export class CachedObservable<T> {
     this.lastUpdatedSeconds = 0;
   }
 
+  /***
+   * Resets the cache duration, so the next attempt will fetch new
+   */
+  reset() {
+    this.lastUpdatedSeconds = Date.now() / 1000 - this.cacheDurationSeconds - 1;
+  }
+
   getObservable(): Observable<T> {
     // Update the cache ?
     if (this.lastUpdatedSeconds <
