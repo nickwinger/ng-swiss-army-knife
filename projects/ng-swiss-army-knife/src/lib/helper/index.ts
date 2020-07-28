@@ -4,6 +4,7 @@ import { FileHelper } from './file';
 import { StringHelper } from './string';
 import { DateHelper } from './date';
 import { ObjectHelper } from './object';
+import { ArrayHelper } from './array';
 
 export class Helper {
   static date = DateHelper;
@@ -12,4 +13,5 @@ export class Helper {
   static file = FileHelper;
   static string = StringHelper;
   static object = ObjectHelper;
+  static array = ArrayHelper;
 }
