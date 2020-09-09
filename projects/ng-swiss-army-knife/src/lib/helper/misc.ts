@@ -101,7 +101,10 @@ export function isNullOrUndefined(value: any): boolean {
  * Checks if an object is empty, meaning it has to properties
  * @param obj The object which to check for empty
  */
-export function isObjectEmpty(obj) {
+export function isObjectEmpty(obj): boolean {
+  if (obj === undefined || obj === null) {
+    return true;
+  }
   return Object.keys(obj).length === 0;
 }
 
