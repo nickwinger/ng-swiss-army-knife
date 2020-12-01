@@ -83,6 +83,10 @@
                                     <span class="modifier">Static</span>
                                 <a href="#createAutoIndexer">createAutoIndexer</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#hasConstructorName">hasConstructorName</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -129,7 +133,41 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/object.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/object.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hasConstructorName"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            hasConstructorName
+                            </b>
+                            <a href="#hasConstructorName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>hasConstructorName:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>hasConstructorName</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/object.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -165,7 +203,25 @@
   return new Proxy(mainObject, handler);
 }
 
+/***
+ * Checks if the given object has a specific constructor name
+ * e.g: hasConstructorName(new Date(), &#x27;Date&#x27;)
+ * @param obj the object to check for if it has the correct constructor name
+ */
+export function hasConstructorName(obj: object, constructorName: string): boolean {
+  if (typeof obj !&#x3D;&#x3D; &#x27;object&#x27;) {
+    return false;
+  }
+
+  if (obj.constructor.name !&#x3D;&#x3D; constructorName) {
+    return false;
+  }
+
+  return true;
+}
+
 export class ObjectHelper {
+  static hasConstructorName &#x3D; hasConstructorName;
   static createAutoIndexer &#x3D; createAutoIndexer;
 }
 </code></pre>

@@ -91,6 +91,10 @@
                                     <span class="modifier">Static</span>
                                 <a href="#downloadArrayAsCsvFile">downloadArrayAsCsvFile</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#getFile">getFile</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -137,7 +141,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:116</a></div>
                             </td>
                         </tr>
 
@@ -171,7 +175,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:117</a></div>
                             </td>
                         </tr>
 
@@ -205,7 +209,41 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:118</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFile"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            getFile
+                            </b>
+                            <a href="#getFile"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>getFile:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>getFile</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/helper/file.ts:115</a></div>
                             </td>
                         </tr>
 
@@ -250,7 +288,7 @@ export function createCsvDataUriFromArray(data: string[][], delimiter: string &#
     const row &#x3D; rowArray.join(delimiter);
     csvContent +&#x3D; row + &#x27;\r\n&#x27;;
   });
-  
+
   return csvContent;
 }
 
@@ -265,7 +303,74 @@ export function downloadArrayAsCsvFile(data: string[][], filename: string, delim
   createAndClickDownloadLink(csv, filename);
 }
 
+export type FileDataType &#x3D; &#x27;base64&#x27; | &#x27;binaryString&#x27;;
+
+export interface IFile {
+  data: string;
+  dataType: FileDataType;
+  lastModified: number;
+  name: string;
+  size: number;
+  mimeType: string;
+}
+
+/**
+ * opens a file dialog to choose a file and returns the file object
+ * including the data.
+ * When it is an image the data is read as base64, so the dataType is &#x27;base64&#x27;
+ * All other files are read as binaryString
+ * @param fileDialogAccept this is optional, choose the mime types of files
+ * the user can select in the file dialog
+ */
+export async function getFile(fileDialogAccept: string &#x3D; &#x27;*&#x27;): Promise&lt;IFile&gt; {
+  const p &#x3D; new Promise&lt;IFile&gt;((resolve, reject) &#x3D;&gt; {
+
+    const element     &#x3D; document.createElement(&#x27;div&#x27;);
+    element.innerHTML &#x3D; &#x60;&lt;input type&#x3D;&quot;file&quot; accept&#x3D;&quot;${fileDialogAccept}&quot;&gt;&#x60;;
+    const fileInput   &#x3D; element.firstChild as HTMLInputElement;
+
+    fileInput.addEventListener(&#x27;change&#x27;, () &#x3D;&gt; {
+      const file   &#x3D; fileInput.files[0];
+      const reader &#x3D; new FileReader();
+
+      const doResolve &#x3D; (data: string, dataType: FileDataType) &#x3D;&gt; {
+        element.remove();
+
+        resolve({
+          size: file.size,
+          lastModified: file.lastModified,
+          mimeType: file.type,
+          name: file.name,
+          dataType: dataType,
+          data: data
+        });
+      };
+
+      if (file.type.startsWith(&#x27;image&#x27;)) {
+        reader.onload &#x3D; () &#x3D;&gt; {
+          const s          &#x3D; reader.result as string;
+          const base64Part &#x3D; s.substring(s.indexOf(&#x27;base64,&#x27;) + 7);
+          doResolve(base64Part, &#x27;base64&#x27;);
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        reader.onload &#x3D; () &#x3D;&gt; {
+          doResolve(reader.result as string, &#x27;binaryString&#x27;);
+        };
+
+        reader.readAsBinaryString(file);
+      }
+    });
+
+    fileInput.click();
+  });
+
+  return p;
+}
+
 export class FileHelper {
+  static getFile &#x3D; getFile;
   static createAndClickDownloadLink &#x3D; createAndClickDownloadLink;
   static createCsvDataUriFromArray &#x3D; createCsvDataUriFromArray;
   static downloadArrayAsCsvFile &#x3D; downloadArrayAsCsvFile;

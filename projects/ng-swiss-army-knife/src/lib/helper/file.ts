@@ -30,7 +30,7 @@ export function createCsvDataUriFromArray(data: string[][], delimiter: string = 
     const row = rowArray.join(delimiter);
     csvContent += row + '\r\n';
   });
-  
+
   return csvContent;
 }
 
@@ -45,7 +45,74 @@ export function downloadArrayAsCsvFile(data: string[][], filename: string, delim
   createAndClickDownloadLink(csv, filename);
 }
 
+export type FileDataType = 'base64' | 'binaryString';
+
+export interface IFile {
+  data: string;
+  dataType: FileDataType;
+  lastModified: number;
+  name: string;
+  size: number;
+  mimeType: string;
+}
+
+/**
+ * opens a file dialog to choose a file and returns the file object
+ * including the data.
+ * When it is an image the data is read as base64, so the dataType is 'base64'
+ * All other files are read as binaryString
+ * @param fileDialogAccept this is optional, choose the mime types of files
+ * the user can select in the file dialog
+ */
+export async function getFile(fileDialogAccept: string = '*'): Promise<IFile> {
+  const p = new Promise<IFile>((resolve, reject) => {
+
+    const element     = document.createElement('div');
+    element.innerHTML = `<input type="file" accept="${fileDialogAccept}">`;
+    const fileInput   = element.firstChild as HTMLInputElement;
+
+    fileInput.addEventListener('change', () => {
+      const file   = fileInput.files[0];
+      const reader = new FileReader();
+
+      const doResolve = (data: string, dataType: FileDataType) => {
+        element.remove();
+
+        resolve({
+          size: file.size,
+          lastModified: file.lastModified,
+          mimeType: file.type,
+          name: file.name,
+          dataType: dataType,
+          data: data
+        });
+      };
+
+      if (file.type.startsWith('image')) {
+        reader.onload = () => {
+          const s          = reader.result as string;
+          const base64Part = s.substring(s.indexOf('base64,') + 7);
+          doResolve(base64Part, 'base64');
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        reader.onload = () => {
+          doResolve(reader.result as string, 'binaryString');
+        };
+
+        reader.readAsBinaryString(file);
+      }
+    });
+
+    fileInput.click();
+  });
+
+  return p;
+}
+
 export class FileHelper {
+  static getFile = getFile;
   static createAndClickDownloadLink = createAndClickDownloadLink;
   static createCsvDataUriFromArray = createCsvDataUriFromArray;
   static downloadArrayAsCsvFile = downloadArrayAsCsvFile;

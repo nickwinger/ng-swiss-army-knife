@@ -85,6 +85,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
+                                <a href="#FormValidators">FormValidators</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
                                 <a href="#Helper">Helper</a>
                             </li>
                             <li>
@@ -137,7 +141,41 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="FormValidators"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            FormValidators
+                            </b>
+                            <a href="#FormValidators"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>FormValidators:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>FormValidators</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -171,7 +209,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -205,7 +243,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/ng-swiss-army-knife/src/public_api.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -227,23 +265,30 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Helper } from &#x27;./lib/helper&#x27;;
 import { PubSubService } from &#x27;./lib/services/pub-sub.service&#x27;;
 import { BaseComponent } from &#x27;./lib/classes/base.component&#x27;;
+import { FormValidators } from &#x27;./lib/validators&#x27;;
 
+export * from &#x27;./lib/ng-swiss-army-knife.module&#x27;;
 export * from &#x27;./lib/services/pub-sub.service&#x27;;
 export * from &#x27;./lib/services/key-value-store.service&#x27;;
 export * from &#x27;./lib/services/cachedObservable.service&#x27;;
-export * from &#x27;./lib/ng-swiss-army-knife.module&#x27;;
 export * from &#x27;./lib/helper&#x27;;
 export * from &#x27;./lib/helper/file&#x27;;
 export * from &#x27;./lib/helper/form&#x27;;
 export * from &#x27;./lib/helper/misc&#x27;;
 export * from &#x27;./lib/helper/string&#x27;;
+export * from &#x27;./lib/helper/array&#x27;;
 export * from &#x27;./lib/classes/base.component&#x27;;
 export * from &#x27;./lib/classes/stateFulObject&#x27;;
 export * from &#x27;./lib/classes/cachedObservable&#x27;;
 export * from &#x27;./lib/helper/date&#x27;;
 export * from &#x27;./lib/helper/object&#x27;;
+export * from &#x27;./lib/validators&#x27;;
+export * from &#x27;./lib/directives/ng-ionic-sync-formcontrol-classes/ng-ionic-sync-formcontrol-classes.directive&#x27;;
+export * from &#x27;./lib/directives/shadowDomStyle.directive&#x27;;
+export * from &#x27;./lib/pipes/roundNumber.pipe&#x27;;
 
 export class SwissArmyKnife {
+  static FormValidators &#x3D; FormValidators;
   static Helper &#x3D; Helper;
   static PubSubService &#x3D; PubSubService;
   static BaseComponent &#x3D; BaseComponent;

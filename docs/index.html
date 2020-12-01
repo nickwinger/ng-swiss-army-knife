@@ -40,7 +40,33 @@ that are often used in different angular projects.</p>
 <h2 id="installation">Installation</h2>
 <p>run  <code>npm i ng-swiss-army-knife --save</code></p>
 <h2 id="api">API</h2>
-<h3 id="classes">Classes</h3>
+<h3 id="form-validators">Form Validators</h3>
+<h4 id="dategreaterthan">dateGreaterThan</h4>
+<p>Checks if a date is greater than another (angular form controls)
+<br>
+E.g.:</p>
+<div><pre class="line-numbers"><code class="language-none">this.form = fb.group({
+      dateFrom: [&#39;&#39;, [Validators.required]],
+      dateTo: [&#39;&#39;]     
+    });
+
+    this.form.controls.dateTo.setValidators(
+      FormValidators.dateGreaterThan(this.form.controls.dateFrom,
+        (value: string) =&gt; new Date(value)));</code></pre></div><h4 id="anyrequired">anyRequired</h4>
+<p>Checks if any given FormControl has a value. This validator must  be used on form level, see
+<a href="https://angular.io/guide/form-validation#cross-field-validation">https://angular.io/guide/form-validation#cross-field-validation</a>
+<br>
+E.g.:</p>
+<div><pre class="line-numbers"><code class="language-none">this.form = fb.group({
+      dateFrom: [&#39;&#39;, [Validators.required]],
+      dateTo: [&#39;&#39;],
+      days: [0],
+      hours: [0],
+      minutes: [0],
+      timespanMode: [&#39;timespanMinutesFromNow&#39;]
+    }, {
+      validators: [this.anyRequired([&#39;days&#39;, &#39;hours&#39;, &#39;minutes&#39;])]
+    });</code></pre></div><h3 id="classes">Classes</h3>
 <h4 id="cachedobservable">CachedObservable</h4>
 <p>How many times you wanted a cached observable out of the box ?
 Here you have it.
@@ -68,7 +94,12 @@ more simpler to use.</p>
 If you programmatically use the markAs*** functions on an angular form control it won&#39;t sync up to the ion-input or ion-item.
 This attribute directive syncs these css classes as a workaround because it is still not working see:
 <a href="https://github.com/ionic-team/ionic/issues/20650">https://github.com/ionic-team/ionic/issues/20650</a></p>
-<h3 id="functions">Functions</h3>
+<h4 id="shadowdomstyledirective-styling-shadowdom">ShadowDomStyleDirective - Styling ShadowDom</h4>
+<p>With this directive you can style an element inside the shadow dom.
+This is useful e.g. for Ionic Components which all hidden by the Shadow-Dom.
+<br>
+Usage Example:<br></p>
+<div><pre class="line-numbers"><code class="language-none">&lt;ion-item [shadowStyle]=&quot;{selector: &#39;.input-wrapper&#39;, style: { overflow: &#39;visible&#39;}}&quot;&gt;</code></pre></div><h3 id="functions">Functions</h3>
 <h4 id="createautoindexer">createAutoIndexer</h4>
 <p>With this method you can merge 2 Objects properties. You have a main object and a an object that extends the  main object.
 This is usefull if you want to implement an interface in a class but you don&#39;t want

@@ -57,6 +57,9 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#anyRequired" title="projects/ng-swiss-army-knife/src/lib/validators.ts"><b>anyRequired</b>&nbsp;&nbsp;&nbsp;(projects/.../validators.ts)</a>
+                        </li>
+                        <li>
                             <a href="#callFuncOnFormGroupAndChildren" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>callFuncOnFormGroupAndChildren</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
                         </li>
                         <li>
@@ -96,6 +99,9 @@
                             <a href="#dateAddYears" title="projects/ng-swiss-army-knife/src/lib/helper/date.ts"><b>dateAddYears</b>&nbsp;&nbsp;&nbsp;(projects/.../date.ts)</a>
                         </li>
                         <li>
+                            <a href="#dateGreaterThan" title="projects/ng-swiss-army-knife/src/lib/validators.ts"><b>dateGreaterThan</b>&nbsp;&nbsp;&nbsp;(projects/.../validators.ts)</a>
+                        </li>
+                        <li>
                             <a href="#dateSubstractDays" title="projects/ng-swiss-army-knife/src/lib/helper/date.ts"><b>dateSubstractDays</b>&nbsp;&nbsp;&nbsp;(projects/.../date.ts)</a>
                         </li>
                         <li>
@@ -130,6 +136,15 @@
                         </li>
                         <li>
                             <a href="#getDirtyControls" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>getDirtyControls</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getFile" title="projects/ng-swiss-army-knife/src/lib/helper/file.ts"><b>getFile</b>&nbsp;&nbsp;&nbsp;(projects/.../file.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#hasConstructorName" title="projects/ng-swiss-army-knife/src/lib/helper/object.ts"><b>hasConstructorName</b>&nbsp;&nbsp;&nbsp;(projects/.../object.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isDate" title="projects/ng-swiss-army-knife/src/lib/helper/date.ts"><b>isDate</b>&nbsp;&nbsp;&nbsp;(projects/.../date.ts)</a>
                         </li>
                         <li>
                             <a href="#isNow" title="projects/ng-swiss-army-knife/src/lib/helper/date.ts"><b>isNow</b>&nbsp;&nbsp;&nbsp;(projects/.../date.ts)</a>
@@ -174,6 +189,9 @@
                             <a href="#markFormGroupAsUntouched" title="projects/ng-swiss-army-knife/src/lib/helper/form.ts"><b>markFormGroupAsUntouched</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
                         </li>
                         <li>
+                            <a href="#move" title="projects/ng-swiss-army-knife/src/lib/helper/array.ts"><b>move</b>&nbsp;&nbsp;&nbsp;(projects/.../array.ts)</a>
+                        </li>
+                        <li>
                             <a href="#padLeft" title="projects/ng-swiss-army-knife/src/lib/helper/string.ts"><b>padLeft</b>&nbsp;&nbsp;&nbsp;(projects/.../string.ts)</a>
                         </li>
                         <li>
@@ -204,6 +222,159 @@
     </table>
 </section>
 
+    <h3>projects/ng-swiss-army-knife/src/lib/validators.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="anyRequired"></a>
+                        <span class="name">
+                            <b>
+                            anyRequired
+                            </b>
+                            <a href="#anyRequired"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>anyRequired(controlNames, hasValueFunc)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>*
+This validator function must  be used on the formGroup level, see
+<a href="https://angular.io/guide/form-validation#cross-field-validation">https://angular.io/guide/form-validation#cross-field-validation</a></p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>controlNames</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the controlNames which at least on must  have a value</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>hasValueFunc</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>Optional a function to tell if the control has a value or not</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dateGreaterThan"></a>
+                        <span class="name">
+                            <b>
+                            dateGreaterThan
+                            </b>
+                            <a href="#dateGreaterThan"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>dateGreaterThan(lowerDateControl, formValue2DateFunc?)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>*
+Checks if a form control date is greater than another form control date</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>lowerDateControl</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the other control which holds the date that must be lower</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>formValue2DateFunc</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>if the value of the form controls is not a date provide
+this function to convert to date</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
     <h3>projects/ng-swiss-army-knife/src/lib/helper/form.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -866,6 +1037,70 @@ And presents it to the user as a download file in the browser</p>
                 </tr>
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFile"></a>
+                        <span class="name">
+                            <b>
+                            getFile
+                            </b>
+                            <a href="#getFile"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getFile(fileDialogAccept)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>opens a file dialog to choose a file and returns the file object
+including the data.
+When it is an image the data is read as base64, so the dataType is &#39;base64&#39;
+All other files are read as binaryString</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fileDialogAccept</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>this is optional, choose the mime types of files
+the user can select in the file dialog</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </section>
     <h3>projects/ng-swiss-army-knife/src/lib/helper/object.ts</h3>
     <section>
@@ -941,6 +1176,79 @@ exists on both objects it will be returned from this one</p>
                                                                 <code><p>This is the second object that extends the mainObject.
 Properties not found on the  mainObject are read from this one</p>
 </code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hasConstructorName"></a>
+                        <span class="name">
+                            <b>
+                            hasConstructorName
+                            </b>
+                            <a href="#hasConstructorName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>hasConstructorName(obj, constructorName)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>*
+Checks if the given object has a specific constructor name
+e.g: hasConstructorName(new Date(), &#39;Date&#39;)</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the object to check for if it has the correct constructor name</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>constructorName</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -2865,6 +3173,67 @@ And returns this property in an observable</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="isDate"></a>
+                        <span class="name">
+                            <b>
+                            isDate
+                            </b>
+                            <a href="#isDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>isDate(obj)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>*
+Checks if the given object is a date object</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>the object to check for if it is a date or not</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="isNow"></a>
                         <span class="name">
                             <b>
@@ -3013,6 +3382,80 @@ And returns this property in an observable</p>
                                         <tbody>
                                                 <tr>
                                                         <td>date</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>projects/ng-swiss-army-knife/src/lib/helper/array.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="move"></a>
+                        <span class="name">
+                            <b>
+                            move
+                            </b>
+                            <a href="#move"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>move(arr, prevIndex, newIndex)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>arr</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>prevIndex</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>newIndex</td>
                                                     
                                                     <td>
                                                             No
