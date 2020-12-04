@@ -1,0 +1,298 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Angular Swiss Army Knife</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Angular Swiss Army Knife</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>FormValidators</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/ng-swiss-army-knife/src/lib/validators.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#anyRequired">anyRequired</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#dateGreaterThan">dateGreaterThan</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="anyRequired"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            anyRequired
+                            </b>
+                            <a href="#anyRequired"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>anyRequired:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>anyRequired</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/validators.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dateGreaterThan"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            dateGreaterThan
+                            </b>
+                            <a href="#dateGreaterThan"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>dateGreaterThan:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>dateGreaterThan</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/ng-swiss-army-knife/src/lib/validators.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from &#x27;@angular/forms&#x27;;
+import { hasConstructorName } from &#x27;./helper/object&#x27;;
+
+/***
+ * Checks if a form control date is greater than another form control date
+ * @param lowerDateControl the other control which holds the date that must be lower
+ * @param formValue2DateFunc if the value of the form controls is not a date provide
+ * this function to convert to date
+ */
+export function dateGreaterThan(lowerDateControl: AbstractControl, formValue2DateFunc?:
+  (value: any) &#x3D;&gt; Date): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null &#x3D;&gt; {
+    let lowerDate;
+    let greaterDate;
+    if (formValue2DateFunc) {
+      lowerDate   &#x3D; formValue2DateFunc(lowerDateControl.value);
+      greaterDate &#x3D; formValue2DateFunc(control.value);
+    } else {
+      lowerDate   &#x3D; lowerDateControl.value as Date;
+      greaterDate &#x3D; control.value as Date;
+    }
+    return lowerDate &gt; greaterDate ?
+      {dateGreaterThan: {value: control.value}} : null;
+  };
+}
+
+/***
+ * This validator function must  be used on the formGroup level, see
+ * https://angular.io/guide/form-validation#cross-field-validation
+ * @param controlNames the controlNames which at least on must  have a value
+ * @param hasValueFunc Optional a function to tell if the control has a value or not
+ */
+export function anyRequired(controlNames: string[],
+                            hasValueFunc: (c: AbstractControl) &#x3D;&gt; boolean
+                              &#x3D; c &#x3D;&gt; !!c.value): ValidatorFn {
+  return (fb: FormGroup): ValidationErrors | null &#x3D;&gt; {
+    if (!hasConstructorName(fb, &#x27;FormGroup&#x27;)) {
+      throw new Error(&#x27;Validator anyRequired must be on form level. See https://angular.io/guide/form-validation#cross-field-validation&#x27;);
+    }
+
+    const someHasValue &#x3D; controlNames.some(
+      controlName &#x3D;&gt; hasValueFunc(fb.get(controlName)));
+
+    return someHasValue ? null : {anyRequired: true};
+  };
+}
+
+export class FormValidators {
+  static anyRequired &#x3D; anyRequired;
+  static dateGreaterThan &#x3D; dateGreaterThan;
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'FormValidators.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
