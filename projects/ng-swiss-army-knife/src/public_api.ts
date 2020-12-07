@@ -3,10 +3,11 @@
  */
 
 import { Helper } from './lib/helper';
-import { PubSubService } from './lib/services/pub-sub.service';
+import { Services } from './lib/services';
 import { BaseComponent } from './lib/classes/base.component';
 import { FormValidators } from './lib/validators';
 
+export * from './lib/services/template.service';
 export * from './lib/ng-swiss-army-knife.module';
 export * from './lib/services/pub-sub.service';
 export * from './lib/services/key-value-store.service';
@@ -30,6 +31,6 @@ export * from './lib/pipes/roundNumber.pipe';
 export class SwissArmyKnife {
   static FormValidators = FormValidators;
   static Helper = Helper;
-  static PubSubService = PubSubService;
+  static Services = Services;
   static BaseComponent = BaseComponent;
 }
