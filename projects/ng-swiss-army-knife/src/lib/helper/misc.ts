@@ -223,7 +223,39 @@ export function createThumbnailFromBase64Image(base64Image: string, targetSize: 
   });
 }
 
+/**
+ * Safe calls a function, meaning if the function does not exist on the object
+ * or the object is null/undefined it does not throw an error, but return
+ * the defaultValue
+ * @param obj The object which holds the function to call
+ * @param functionToCallGetterFuncOrName a getter function to return the
+ * functionToCall or the name of the function as a string
+ * @param defaultValue an optional default value to return if the function
+ * cannot be called
+ * @param params optional parameters for the function
+ */
+type functionGetter<T> = (obj: T) => Function;
+export function safeCall<TObject, TReturnValue>(
+  obj: TObject,
+  functionToCallGetterFuncOrName: string | functionGetter<TObject>,
+  defaultValue: TReturnValue = undefined,
+  ...params): TReturnValue {
+  if (!obj) {
+    return defaultValue;
+  }
+
+  const functionToCall = typeof functionToCallGetterFuncOrName === 'string' ?
+    obj[functionToCallGetterFuncOrName] : functionToCallGetterFuncOrName(obj);
+
+  if (!functionToCall) {
+    return defaultValue;
+  }
+
+  return functionToCall.call(obj, ...params);
+}
+
 export class MiscHelper {
+  static safeCall = safeCall;
   static createThumbnailFromBase64Image = createThumbnailFromBase64Image;
   static escapeXml = escapeXml;
   static isNumber = isNumber;

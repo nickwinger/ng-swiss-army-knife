@@ -1,9 +1,58 @@
 import { TestBed } from '@angular/core/testing';
-import { jsonDeepClone } from './misc';
+import { jsonDeepClone, safeCall } from './misc';
 
+class Hello {
+  foo(): string {
+    return 'bar';
+  }
+
+  greet(name: string): string {
+    return 'Hello ' + name;
+  }
+}
 describe('MiscHelper', () => {
   beforeEach(() => TestBed.configureTestingModule({
   }));
+
+  it('should safe call a function 1', () => {
+    const hello = new Hello();
+
+    const ret = safeCall(hello, h => h.foo);
+
+    expect(ret).toBe('bar');
+  });
+
+  it('should safe call a function 1.1', () => {
+    const hello = new Hello();
+
+    const ret = safeCall(hello, 'foo');
+
+    expect(ret).toBe('bar');
+  });
+
+  it('should safe call a function 2', () => {
+    const hello = new Hello();
+
+    const ret = safeCall(hello, h => h['bar'], 'oi');
+
+    expect(ret).toBe('oi');
+  });
+
+  it('should safe call a function 3', () => {
+    const hello = new Hello();
+
+    const ret = safeCall(hello, h => h.greet, 'oi', 'Tom');
+
+    expect(ret).toBe('Hello Tom');
+  });
+
+  it('should safe call a function 3.1', () => {
+    const hello = new Hello();
+
+    const ret = safeCall(hello, 'greet', 'oi', 'Tom');
+
+    expect(ret).toBe('Hello Tom');
+  });
 
   it('should deep clone array', () => {
     const arrObj1 = {foo: 'bar'};
