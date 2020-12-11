@@ -1,5 +1,7 @@
 import { AsyncSubject, Observable } from 'rxjs';
+import * as stringify from 'json-stable-stringify';
 
+console.log('EUDTA', stringify);
 /**
  * Escapes a html string to be safe, for example to show inside HTML
  * @param unsafe The HTML string which to escape
@@ -28,10 +30,13 @@ export function isNumber(ch: string): boolean {
  * Waits for a property on an object to be not undefined
  * And returns this property in an observable
  * @param obj The object which holds the property
- * @param (obj: TObject) => TProperty propertyAccessor the property accessor function
- * @param (prop: TProperty) => boolean the default checks if the property is not undefined to be valid
- * and finish waiting. Here you can provide a custom function, e.g. also checking if it is not null
- * @param number retries How many 100 milliseconds it should wait for the property
+ * @param (obj: TObject) => TProperty propertyAccessor the property accessor
+ *   function
+ * @param (prop: TProperty) => boolean the default checks if the property is
+ *   not undefined to be valid and finish waiting. Here you can provide a
+ *   custom function, e.g. also checking if it is not null
+ * @param number retries How many 100 milliseconds it should wait for the
+ *   property
  * @returns Observable<TProperty>
  */
 export function waitForProperty<TObject, TProperty>
@@ -109,7 +114,8 @@ export function isObjectEmpty(obj): boolean {
 }
 
 /**
- * Takes an object converts it to json and then URI-Encodes it to be used in a URL
+ * Takes an object converts it to json and then URI-Encodes it to be used in a
+ * URL
  * @param obj The object which to encode
  */
 export function encodeURIJson(obj: any): string {
@@ -118,7 +124,8 @@ export function encodeURIJson(obj: any): string {
 }
 
 /**
- * Takes an URI value which is a json string and converts it to a javascript object
+ * Takes an URI value which is a json string and converts it to a javascript
+ * object
  * @param encodedJson The URIEncoded JSON
  */
 export function decodeURIJson<T>(encodedJson: string): T {
@@ -127,11 +134,12 @@ export function decodeURIJson<T>(encodedJson: string): T {
 }
 
 /***
- * Clones an object via json stringify and json parse (so classes with functions won't work here...)
- * However plain objects and arrays are deep cloned, this is why this method exists
- * Also important: Because of deep cloning objects in arrays are also cloned, so perfect
- * for duplicating an array without having the same reference inside
- * Most useful also for immutable Redux-State
+ * Clones an object via json stringify and json parse (so classes with
+ * functions won't work here...) However plain objects and arrays are deep
+ * cloned, this is why this method exists Also important: Because of deep
+ * cloning objects in arrays are also cloned, so perfect for duplicating an
+ * array without having the same reference inside Most useful also for
+ * immutable Redux-State
  * @param obj The object to clone
 */
 export function jsonDeepClone<T>(obj: T): T {
@@ -140,21 +148,22 @@ export function jsonDeepClone<T>(obj: T): T {
 }
 
 /***
- * Compares 2 objects if they are equal by converting to json and comparing the string
- * So this method does not compare the reference but all the values inside
+ * Compares 2 objects if they are equal by converting to json and comparing the
+ * string So this method does not compare the reference but all the values
+ * inside
  * @param obj1 First object to compare
  * @param obj2 Second object to compare
  */
 export function jsonIsEqual(obj1: any, obj2: any): boolean {
-  const json1 = JSON.stringify(obj1);
-  const json2 = JSON.stringify(obj2);
+  const json1 = stringify(obj1);
+  const json2 = stringify(obj2);
 
   return json1 === json2;
 }
 
 /***
- * Used to preload image. Returns a stream containing the Html Image Element on success
- * or the error in case of an error
+ * Used to preload image. Returns a stream containing the Html Image Element on
+ * success or the error in case of an error
  * @param url The image src url to load
  */
 export function loadImage(url: string): Observable<HTMLImageElement> {
@@ -173,7 +182,8 @@ export function loadImage(url: string): Observable<HTMLImageElement> {
 }
 
 /***
- * Javascript has no methode for rounding a number to certain amount of digits, so here it is
+ * Javascript has no methode for rounding a number to certain amount of digits,
+ * so here it is
  * @param num The number which to round
  * @param digits How many digits after the comma
  */

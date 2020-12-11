@@ -5,6 +5,7 @@ import { StringHelper } from './string';
 import { DateHelper } from './date';
 import { ObjectHelper } from './object';
 import { ArrayHelper } from './array';
+import { ComparatorHelper } from './comparator';
 
 export class Helper {
   static date = DateHelper;
@@ -14,4 +15,5 @@ export class Helper {
   static string = StringHelper;
   static object = ObjectHelper;
   static array = ArrayHelper;
+  static comparator = ComparatorHelper;
 }
