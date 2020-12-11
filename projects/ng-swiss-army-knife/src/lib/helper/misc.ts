@@ -234,10 +234,10 @@ export function createThumbnailFromBase64Image(base64Image: string, targetSize: 
  * cannot be called
  * @param params optional parameters for the function
  */
-type functionGetter<T> = (obj: T) => Function;
+type functionGetter<TObject, TReturnValue> = (obj: TObject) => (...params) => TReturnValue;
 export function safeCall<TObject, TReturnValue>(
   obj: TObject,
-  functionToCallGetterFuncOrName: string | functionGetter<TObject>,
+  functionToCallGetterFuncOrName: string | functionGetter<TObject, TReturnValue>,
   defaultValue: TReturnValue = undefined,
   ...params): TReturnValue {
   if (!obj) {
