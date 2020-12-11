@@ -1,4 +1,4 @@
-import * as stringify from 'json-stable-stringify';
+import stringify from 'fast-json-stable-stringify';
 
 /***
  * Compares 2 objects if they are equal by converting to json and comparing the

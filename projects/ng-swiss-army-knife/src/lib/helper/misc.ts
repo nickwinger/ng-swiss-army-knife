@@ -1,7 +1,6 @@
 import { AsyncSubject, Observable } from 'rxjs';
-import * as stringify from 'json-stable-stringify';
+import stringify from 'fast-json-stable-stringify';
 
-console.log('EUDTA', stringify);
 /**
  * Escapes a html string to be safe, for example to show inside HTML
  * @param unsafe The HTML string which to escape
