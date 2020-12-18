@@ -1,5 +1,7 @@
-import { OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
-import { Observable, ReplaySubject, Subject } from 'rxjs';
+import {
+  Input, OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges
+} from '@angular/core';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
 export interface SimpleChangeWrapper {
@@ -24,8 +26,8 @@ export interface SimpleChangeWrapper {
  *  tap(() => do something)
  * ).subscribe();
  *
- * so this base class has no injector dependencies and provide the onDestroy$ and onInit$ observables
- * which you can subscribe to.
+ * so this base class has no injector dependencies and provide the onDestroy$
+ * and onInit$ observables which you can subscribe to.
  *
  * e.g. you don't have to use OnInit in the subsclass you cann also just
  * subscribe to this.onInit$.subscribe() in the constructor
@@ -42,6 +44,10 @@ export abstract class BaseComponent implements OnDestroy, OnInit, OnChanges {
   private onInit$ubject: ReplaySubject<void>;
   private onChanges$ubject: Subject<SimpleChangeWrapper>;
 
+  @Input() set disabled(isDisabled: boolean) {
+    this.isDisabled$.next(isDisabled);
+  }
+
   /**
    * Emits when the angular component gets destroyed
    */
@@ -57,7 +63,11 @@ export abstract class BaseComponent implements OnDestroy, OnInit, OnChanges {
    */
   readonly onChanges$: Observable<SimpleChangeWrapper>;
 
+  readonly isDisabled$: BehaviorSubject<boolean>;
+
   constructor() {
+    this.isDisabled$ = new BehaviorSubject<boolean>(false);
+
     this.onDestroy$ubject = new ReplaySubject(1);
     this.onInit$ubject = new ReplaySubject(1);
     this.onChanges$ubject = new Subject();
