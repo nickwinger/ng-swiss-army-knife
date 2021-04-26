@@ -1,5 +1,5 @@
 import { Observable, ReplaySubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 
 export class CachedObservable<T> {
   private replaySubject: ReplaySubject<T>;
@@ -23,6 +23,7 @@ export class CachedObservable<T> {
    */
   refresh() {
     this.observable.pipe(
+      take(1),
       tap(() => this.lastUpdatedSeconds =
         Date.now() / 1000),
       tap(response => this.replaySubject.next(response))
