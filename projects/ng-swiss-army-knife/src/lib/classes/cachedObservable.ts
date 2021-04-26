@@ -34,7 +34,15 @@ export class CachedObservable<T> {
     // Update the cache ?
     if (this.lastUpdatedSeconds <
       Date.now() / 1000 - this.cacheDurationSeconds) {
-      this.refresh();
+
+      return this.observable.pipe(
+        take(1),
+        tap(() => this.lastUpdatedSeconds =
+          Date.now() / 1000),
+        tap(response => {
+          this.replaySubject.next(response);
+        })
+      );
     }
 
     return this.replaySubject.asObservable();
