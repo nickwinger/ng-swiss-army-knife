@@ -1,6 +1,6 @@
 {
   "name": "ng-swiss-army-knife",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "scripts": {
     "postversion": "git push --follow-tags",
     "compodoc": "compodoc --config .compodocrc.json",
