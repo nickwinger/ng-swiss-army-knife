@@ -12,6 +12,20 @@ export class CachedObservableService {
     this.dictionary = new Map<string, CachedObservable<any>>();
   }
 
+  resetAll() {
+    this.dictionary.forEach((observable, key) => {
+      observable.reset();
+    });
+  }
+
+  resetByKeyStartsWith(keyStartsWith: string) {
+    this.dictionary.forEach((observable, key) => {
+      if (key.startsWith(keyStartsWith)) {
+        observable.reset();
+      }
+    });
+  }
+
   /***
    * Resets the cache duration, so the next attempt will fetch new
    */
