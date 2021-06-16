@@ -46,7 +46,9 @@ export class CachedObservableService {
 
   getOrCreate<T>(key: string, cacheDurationSeconds: number,
                  observable: Observable<T>): Observable<T> {
+    console.debug('ngSwissArmyKnife::cachedObservable::getOrCreate', key, cacheDurationSeconds);
     if (!this.dictionary.has(key)) {
+      console.debug('ngSwissArmyKnife::cachedObservable::getOrCreate::createNew', key, cacheDurationSeconds);
       this.dictionary.set(key,
         new CachedObservable<T>(cacheDurationSeconds, observable));
     }

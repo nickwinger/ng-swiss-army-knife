@@ -31,9 +31,11 @@ export class CachedObservable<T> {
   }
 
   getObservable(): Observable<T> {
+    const secondsNow = Date.now() / 1000;
+
     // Update the cache ?
-    if (this.lastUpdatedSeconds <
-      Date.now() / 1000 - this.cacheDurationSeconds) {
+    if (this.lastUpdatedSeconds < secondsNow - this.cacheDurationSeconds) {
+      console.debug(`ngSwissArmyKnife::cachedObservable::getObservable::fetchNew::this.lastUpdatedSeconds${this.lastUpdatedSeconds}this.cacheDurationSeconds${this.cacheDurationSeconds}secondsNow${secondsNow}`);
 
       return this.observable.pipe(
         take(1),
@@ -44,7 +46,7 @@ export class CachedObservable<T> {
         })
       );
     }
-
+    console.debug('ngSwissArmyKnife::cachedObservable::getObservable', this.lastUpdatedSeconds, this.cacheDurationSeconds);
     return this.replaySubject.asObservable();
   }
 }
