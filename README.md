@@ -224,7 +224,8 @@ We find this very handy, as you don't remember all the helper function
 names if the are just loose.
 ![Intellisense2](https://raw.githubusercontent.com/nickwinger/ng-swiss-army-knife/master/assets/intellisense2.png "Intellisense2")
 
-
+## License
+MIT
 
 ## Development
 * When checkin to GIT run "npm run compodoc" before
